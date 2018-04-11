@@ -1,16 +1,212 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal"
+     xml:base="http://www.semanticweb.org/tulio/ontologies/2018/3/untitled-ontology-4"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal">
+     ontologyIRI="http://www.semanticweb.org/tulio/ontologies/2018/3/untitled-ontology-4">
+    <Prefix name="" IRI="http://www.semanticweb.org/tulio/ontologies/2018/3/untitled-ontology-4"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <ObjectProperty IRI="#nativa_de"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cordaitales_†"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cycadophyta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gimnospermae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pinophyta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Spermatophyta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ginkgophyta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sciadopityaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Podocarpaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Angiospermae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cupressaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bioma"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Taxaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pinales"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Plantae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cephalotaxaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Voltziales_†"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ecossistema"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gnetophyta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mesangiospermae"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sequoia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pinaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Vojnovskyales_†"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Araucariaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Angiospermicas_basais"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Angiospermae"/>
+        <Class IRI="#Spermatophyta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Angiospermicas_basais"/>
+        <Class IRI="#Angiospermae"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Araucariaceae"/>
+        <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bioma"/>
+        <Class IRI="#Ecossistema"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cephalotaxaceae"/>
+        <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cupressaceae"/>
+        <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cycadophyta"/>
+        <Class IRI="#Gimnospermae"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gimnospermae"/>
+        <Class IRI="#Spermatophyta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ginkgophyta"/>
+        <Class IRI="#Gimnospermae"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gnetophyta"/>
+        <Class IRI="#Gimnospermae"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mesangiospermae"/>
+        <Class IRI="#Angiospermae"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pinaceae"/>
+        <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pinales"/>
+        <Class IRI="#Pinophyta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pinophyta"/>
+        <Class IRI="#Gimnospermae"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Podocarpaceae"/>
+        <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sciadopityaceae"/>
+        <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spermatophyta"/>
+        <Class IRI="#Plantae"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Taxaceae"/>
+        <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cordaitales_†"/>
+        <Class IRI="#Pinophyta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Vojnovskyales_†"/>
+        <Class IRI="#Pinophyta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Voltziales_†"/>
+        <Class IRI="#Pinophyta"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Angiospermae"/>
+        <Class IRI="#Gimnospermae"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Angiospermicas_basais"/>
+        <Class IRI="#Mesangiospermae"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Araucariaceae"/>
+        <Class IRI="#Cephalotaxaceae"/>
+        <Class IRI="#Cupressaceae"/>
+        <Class IRI="#Pinaceae"/>
+        <Class IRI="#Podocarpaceae"/>
+        <Class IRI="#Sciadopityaceae"/>
+        <Class IRI="#Taxaceae"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Cycadophyta"/>
+        <Class IRI="#Ginkgophyta"/>
+        <Class IRI="#Gnetophyta"/>
+        <Class IRI="#Pinophyta"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Ecossistema"/>
+        <Class IRI="#Plantae"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Pinales"/>
+        <Class IRI="#Cordaitales_†"/>
+        <Class IRI="#Vojnovskyales_†"/>
+        <Class IRI="#Voltziales_†"/>
+    </DisjointClasses>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#nativa_de"/>
+    </FunctionalObjectProperty>
 </Ontology>
 
 
