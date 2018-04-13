@@ -131,6 +131,9 @@
         <Class IRI="#Cerrado"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Cidade"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Amazonas"/>
     </Declaration>
     <Declaration>
@@ -185,6 +188,9 @@
         <Class IRI="#Ecossistema"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Estado"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Distrito_Federal"/>
     </Declaration>
     <Declaration>
@@ -218,6 +224,9 @@
         <Class IRI="#Tropical_Litorâneo"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#País"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Pinaceae"/>
     </Declaration>
     <Declaration>
@@ -227,16 +236,13 @@
         <Class IRI="#Fortaleza"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#nativa_de"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Cycadophyta"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#Pertence_a"/>
+        <Class IRI="#Rio_Branco"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Rio_Branco"/>
+        <ObjectProperty IRI="#localizado_em"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Mata_Atlântica"/>
@@ -278,6 +284,9 @@
         <Class IRI="#Paraná"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Lugar"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Campo_Grande"/>
     </Declaration>
     <Declaration>
@@ -294,19 +303,19 @@
     </Declaration>
     <SubClassOf>
         <Class IRI="#Acre"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Alagoas"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Amapá"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Amazonas"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Amazônia"/>
@@ -322,7 +331,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Aracaju"/>
-        <Class IRI="#Sergipe"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Araucariaceae"/>
@@ -330,15 +339,15 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Bahia"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Belo_Horizonte"/>
-        <Class IRI="#Minas_Gerais"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Belém"/>
-        <Class IRI="#Pará"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Bioma"/>
@@ -346,11 +355,22 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Boa_Vista"/>
-        <Class IRI="#Roraima"/>
+        <Class IRI="#Cidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Brasil"/>
+        <Class IRI="#País"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Brasília"/>
-        <Class IRI="#Distrito_Federal"/>
+        <Class IRI="#Cidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Brasília"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#localizado_em"/>
+            <Class IRI="#Distrito_Federal"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Caatinga"/>
@@ -358,11 +378,11 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Campo_Grande"/>
-        <Class IRI="#Mato_Grosso_do_Sul"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Ceará"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cephalotaxaceae"/>
@@ -373,12 +393,16 @@
         <Class IRI="#Bioma"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Cidade"/>
+        <Class IRI="#Lugar"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Clima"/>
         <Class IRI="#Ecossistema"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cuiabá"/>
-        <Class IRI="#Mato_Grosso"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cupressaceae"/>
@@ -386,7 +410,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Curitiba"/>
-        <Class IRI="#Paraná"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cycadophyta"/>
@@ -394,7 +418,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Distrito_Federal"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Equatorial"/>
@@ -402,15 +426,19 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Espírito_Santo"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Estado"/>
+        <Class IRI="#Lugar"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Florianópolis"/>
-        <Class IRI="#Santa_Catarina"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Fortaleza"/>
-        <Class IRI="#Ceará"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Gimnospermae"/>
@@ -426,31 +454,31 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Goiás"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Goiânia"/>
-        <Class IRI="#Goiás"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#João_Pessoa"/>
-        <Class IRI="#Paraíba"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Macapá"/>
-        <Class IRI="#Amapá"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Maceió"/>
-        <Class IRI="#Alagoas"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Manaus"/>
-        <Class IRI="#Amazonas"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Maranhão"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Mata_Atlântica"/>
@@ -458,11 +486,11 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Mato_Grosso"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Mato_Grosso_do_Sul"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Mesangiospermae"/>
@@ -470,15 +498,15 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Minas_Gerais"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Natal"/>
-        <Class IRI="#Rio_Grande_do_Norte"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Palmas"/>
-        <Class IRI="#Tocantins"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pampa"/>
@@ -490,23 +518,27 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Paraná"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Paraíba"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pará"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#País"/>
+        <Class IRI="#Lugar"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pernambuco"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Piauí"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pinaceae"/>
@@ -526,31 +558,31 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Porto_Alegre"/>
-        <Class IRI="#Rio_Grande_do_Sul"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Porto_Velho"/>
-        <Class IRI="#Rondônia"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Recife"/>
-        <Class IRI="#Pernambuco"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Rio_Branco"/>
-        <Class IRI="#Acre"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Rio_Grande_do_Norte"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Rio_Grande_do_Sul"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Rio_de_Janeiro"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Rio_de_Janeiro"/>
@@ -558,19 +590,19 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Rondônia"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Roraima"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Salvador"/>
-        <Class IRI="#Bahia"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Santa_Catarina"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Sciadopityaceae"/>
@@ -578,7 +610,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Sergipe"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Spermatophyta"/>
@@ -590,11 +622,11 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#São_Luís"/>
-        <Class IRI="#Maranhão"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#São_Paulo"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#São_Paulo"/>
@@ -606,11 +638,11 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Teresina"/>
-        <Class IRI="#Piauí"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Tocantins"/>
-        <Class IRI="#Brasil"/>
+        <Class IRI="#Estado"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Tropical"/>
@@ -630,7 +662,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Vitória"/>
-        <Class IRI="#Espírito_Santo"/>
+        <Class IRI="#Cidade"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cordaitales_†"/>
@@ -703,9 +735,9 @@
         <Class IRI="#Clima"/>
     </DisjointClasses>
     <DisjointClasses>
-        <Class IRI="#Brasil"/>
-        <Class IRI="#Ecossistema"/>
-        <Class IRI="#Plantae"/>
+        <Class IRI="#Cidade"/>
+        <Class IRI="#Estado"/>
+        <Class IRI="#País"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#Cycadophyta"/>
@@ -732,21 +764,24 @@
         <Class IRI="#Voltziales_†"/>
     </DisjointClasses>
     <FunctionalObjectProperty>
-        <ObjectProperty IRI="#Pertence_a"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#nativa_de"/>
+        <ObjectProperty IRI="#localizado_em"/>
     </FunctionalObjectProperty>
     <AsymmetricObjectProperty>
-        <ObjectProperty IRI="#Pertence_a"/>
+        <ObjectProperty IRI="#localizado_em"/>
     </AsymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#localizado_em"/>
+    </TransitiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#localizado_em"/>
+    </IrreflexiveObjectProperty>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#Pertence_a"/>
-        <Class IRI="#Brasil"/>
+        <ObjectProperty IRI="#localizado_em"/>
+        <Class IRI="#Lugar"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#Pertence_a"/>
-        <Class IRI="#Bioma"/>
+        <ObjectProperty IRI="#localizado_em"/>
+        <Class IRI="#Lugar"/>
     </ObjectPropertyRange>
 </Ontology>
 
