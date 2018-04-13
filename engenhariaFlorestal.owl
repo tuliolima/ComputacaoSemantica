@@ -1,70 +1,50 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/tulio/ontologies/2018/3/untitled-ontology-4"
+     xml:base="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/tulio/ontologies/2018/3/untitled-ontology-4">
+     ontologyIRI="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal">
     <Prefix name="" IRI="http://www.semanticweb.org/tulio/ontologies/2018/3/untitled-ontology-4"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Ontologia para a disciplina de Computação Semântica.</Literal>
+    </Annotation>
     <Declaration>
-        <ObjectProperty IRI="#nativa_de"/>
+        <Class IRI="#Mato_Grosso_do_Sul"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Cordaitales_†"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Cycadophyta"/>
+        <Class IRI="#Roraima"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Gimnospermae"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Pinophyta"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Spermatophyta"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Ginkgophyta"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Sciadopityaceae"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Podocarpaceae"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Angiospermae"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Cupressaceae"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Bioma"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Taxaceae"/>
+        <Class IRI="#Caatinga"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Pinales"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Plantae"/>
+        <Class IRI="#Paraíba"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Cephalotaxaceae"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Voltziales_†"/>
+        <Class IRI="#Boa_Vista"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Ecossistema"/>
+        <Class IRI="#Rio_Grande_do_Sul"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Espírito_Santo"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Gnetophyta"/>
@@ -76,17 +56,262 @@
         <NamedIndividual IRI="#Sequoia"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Pinaceae"/>
+        <Class IRI="#Tocantins"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tropical_de_Altitude"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Vojnovskyales_†"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Bahia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Goiás"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ceará"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sergipe"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Araucariaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Minas_Gerais"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pampa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Belo_Horizonte"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Recife"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Curitiba"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Santa_Catarina"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gimnospermae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Piauí"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ginkgophyta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pinophyta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Goiânia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rio_Grande_do_Norte"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pantanal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tropical"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mato_Grosso"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Manaus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cerrado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Amazonas"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Clima"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Porto_Alegre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Vitória"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Florianópolis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Plantae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bioma"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Acre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Taxaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pará"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Brasília"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Brasil"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Natal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rio_de_Janeiro"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Amapá"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Belém"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Maranhão"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ecossistema"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Distrito_Federal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#São_Paulo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Macapá"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rondônia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Salvador"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pernambuco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Equatorial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#São_Luís"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Teresina"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tropical_Semiárido"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tropical_Litorâneo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pinaceae"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Angiospermicas_basais"/>
     </Declaration>
+    <Declaration>
+        <Class IRI="#Fortaleza"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#nativa_de"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cycadophyta"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Pertence_a"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rio_Branco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mata_Atlântica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Spermatophyta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sciadopityaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Maceió"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cuiabá"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Angiospermae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Porto_Velho"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Amazônia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Palmas"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Podocarpaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Subtropical"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cupressaceae"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Paraná"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Campo_Grande"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Voltziales_†"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Alagoas"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#João_Pessoa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Aracaju"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Acre"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Alagoas"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Amapá"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Amazonas"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Amazônia"/>
+        <Class IRI="#Bioma"/>
+    </SubClassOf>
     <SubClassOf>
         <Class IRI="#Angiospermae"/>
         <Class IRI="#Spermatophyta"/>
@@ -96,24 +321,96 @@
         <Class IRI="#Angiospermae"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Aracaju"/>
+        <Class IRI="#Sergipe"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Araucariaceae"/>
         <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bahia"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Belo_Horizonte"/>
+        <Class IRI="#Minas_Gerais"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Belém"/>
+        <Class IRI="#Pará"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Bioma"/>
         <Class IRI="#Ecossistema"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Boa_Vista"/>
+        <Class IRI="#Roraima"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Brasília"/>
+        <Class IRI="#Distrito_Federal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Caatinga"/>
+        <Class IRI="#Bioma"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Campo_Grande"/>
+        <Class IRI="#Mato_Grosso_do_Sul"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ceará"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Cephalotaxaceae"/>
         <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cerrado"/>
+        <Class IRI="#Bioma"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Clima"/>
+        <Class IRI="#Ecossistema"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cuiabá"/>
+        <Class IRI="#Mato_Grosso"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cupressaceae"/>
         <Class IRI="#Pinales"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Curitiba"/>
+        <Class IRI="#Paraná"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Cycadophyta"/>
         <Class IRI="#Gimnospermae"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Distrito_Federal"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Equatorial"/>
+        <Class IRI="#Clima"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Espírito_Santo"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Florianópolis"/>
+        <Class IRI="#Santa_Catarina"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fortaleza"/>
+        <Class IRI="#Ceará"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Gimnospermae"/>
@@ -128,8 +425,88 @@
         <Class IRI="#Gimnospermae"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Goiás"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Goiânia"/>
+        <Class IRI="#Goiás"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#João_Pessoa"/>
+        <Class IRI="#Paraíba"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Macapá"/>
+        <Class IRI="#Amapá"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Maceió"/>
+        <Class IRI="#Alagoas"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Manaus"/>
+        <Class IRI="#Amazonas"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Maranhão"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mata_Atlântica"/>
+        <Class IRI="#Bioma"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mato_Grosso"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mato_Grosso_do_Sul"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Mesangiospermae"/>
         <Class IRI="#Angiospermae"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Minas_Gerais"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Natal"/>
+        <Class IRI="#Rio_Grande_do_Norte"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Palmas"/>
+        <Class IRI="#Tocantins"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pampa"/>
+        <Class IRI="#Bioma"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pantanal"/>
+        <Class IRI="#Bioma"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Paraná"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Paraíba"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pará"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pernambuco"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Piauí"/>
+        <Class IRI="#Brasil"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pinaceae"/>
@@ -148,16 +525,112 @@
         <Class IRI="#Pinales"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Porto_Alegre"/>
+        <Class IRI="#Rio_Grande_do_Sul"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Porto_Velho"/>
+        <Class IRI="#Rondônia"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Recife"/>
+        <Class IRI="#Pernambuco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rio_Branco"/>
+        <Class IRI="#Acre"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rio_Grande_do_Norte"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rio_Grande_do_Sul"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rio_de_Janeiro"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rio_de_Janeiro"/>
+        <Class IRI="#Rio_de_Janeiro"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rondônia"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Roraima"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Salvador"/>
+        <Class IRI="#Bahia"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Santa_Catarina"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Sciadopityaceae"/>
         <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sergipe"/>
+        <Class IRI="#Brasil"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Spermatophyta"/>
         <Class IRI="#Plantae"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Subtropical"/>
+        <Class IRI="#Clima"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#São_Luís"/>
+        <Class IRI="#Maranhão"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#São_Paulo"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#São_Paulo"/>
+        <Class IRI="#São_Paulo"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Taxaceae"/>
         <Class IRI="#Pinales"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Teresina"/>
+        <Class IRI="#Piauí"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tocantins"/>
+        <Class IRI="#Brasil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tropical"/>
+        <Class IRI="#Clima"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tropical_Litorâneo"/>
+        <Class IRI="#Clima"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tropical_Semiárido"/>
+        <Class IRI="#Clima"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tropical_de_Altitude"/>
+        <Class IRI="#Clima"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Vitória"/>
+        <Class IRI="#Espírito_Santo"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cordaitales_†"/>
@@ -172,6 +645,43 @@
         <Class IRI="#Pinophyta"/>
     </SubClassOf>
     <DisjointClasses>
+        <Class IRI="#Acre"/>
+        <Class IRI="#Alagoas"/>
+        <Class IRI="#Amapá"/>
+        <Class IRI="#Amazonas"/>
+        <Class IRI="#Bahia"/>
+        <Class IRI="#Ceará"/>
+        <Class IRI="#Distrito_Federal"/>
+        <Class IRI="#Espírito_Santo"/>
+        <Class IRI="#Goiás"/>
+        <Class IRI="#Maranhão"/>
+        <Class IRI="#Mato_Grosso"/>
+        <Class IRI="#Mato_Grosso_do_Sul"/>
+        <Class IRI="#Minas_Gerais"/>
+        <Class IRI="#Paraná"/>
+        <Class IRI="#Paraíba"/>
+        <Class IRI="#Pará"/>
+        <Class IRI="#Pernambuco"/>
+        <Class IRI="#Piauí"/>
+        <Class IRI="#Rio_Grande_do_Norte"/>
+        <Class IRI="#Rio_Grande_do_Sul"/>
+        <Class IRI="#Rio_de_Janeiro"/>
+        <Class IRI="#Rondônia"/>
+        <Class IRI="#Roraima"/>
+        <Class IRI="#Santa_Catarina"/>
+        <Class IRI="#Sergipe"/>
+        <Class IRI="#São_Paulo"/>
+        <Class IRI="#Tocantins"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Amazônia"/>
+        <Class IRI="#Caatinga"/>
+        <Class IRI="#Cerrado"/>
+        <Class IRI="#Mata_Atlântica"/>
+        <Class IRI="#Pampa"/>
+        <Class IRI="#Pantanal"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="#Angiospermae"/>
         <Class IRI="#Gimnospermae"/>
     </DisjointClasses>
@@ -189,6 +699,15 @@
         <Class IRI="#Taxaceae"/>
     </DisjointClasses>
     <DisjointClasses>
+        <Class IRI="#Bioma"/>
+        <Class IRI="#Clima"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Brasil"/>
+        <Class IRI="#Ecossistema"/>
+        <Class IRI="#Plantae"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="#Cycadophyta"/>
         <Class IRI="#Ginkgophyta"/>
         <Class IRI="#Gnetophyta"/>
@@ -197,6 +716,14 @@
     <DisjointClasses>
         <Class IRI="#Ecossistema"/>
         <Class IRI="#Plantae"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Equatorial"/>
+        <Class IRI="#Subtropical"/>
+        <Class IRI="#Tropical"/>
+        <Class IRI="#Tropical_Litorâneo"/>
+        <Class IRI="#Tropical_Semiárido"/>
+        <Class IRI="#Tropical_de_Altitude"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#Pinales"/>
@@ -205,8 +732,22 @@
         <Class IRI="#Voltziales_†"/>
     </DisjointClasses>
     <FunctionalObjectProperty>
+        <ObjectProperty IRI="#Pertence_a"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
         <ObjectProperty IRI="#nativa_de"/>
     </FunctionalObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#Pertence_a"/>
+    </AsymmetricObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Pertence_a"/>
+        <Class IRI="#Brasil"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Pertence_a"/>
+        <Class IRI="#Bioma"/>
+    </ObjectPropertyRange>
 </Ontology>
 
 
