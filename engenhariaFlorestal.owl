@@ -17,10 +17,7 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Ontologia para a disciplina de Computação Semântica.</Literal>
     </Annotation>
     <Declaration>
-        <Class IRI="#Bioma"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Pantanal"/>
+        <Class IRI="#Espécie"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Cerrado"/>
@@ -29,31 +26,19 @@
         <Class IRI="#Família"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Espécie"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Subtropical"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Equatorial"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Ecossistema"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Manaus"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Semi-árido"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Estado"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Sequoia"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Tropical"/>
+        <DataProperty IRI="#Temperatura_média"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Sequoia_sempervirens"/>
@@ -62,13 +47,79 @@
         <NamedIndividual IRI="#Brasília"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Pinales"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Plantae"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Ordem"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Acre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Unidade_biológica"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Macapá"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Amazonas"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tropical_de_altitude"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#pertence_a"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pampa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pinophyta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Reino"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cidade"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Brasil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Belo_Horizonte"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Clima"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tropical_litorâneo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bioma"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pantanal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#abrange"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#se_adapta_a"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Estado"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Semi-árido"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tropical"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Minas_Gerais"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pinales"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Taxonomia_seres_vivos"/>
@@ -77,19 +128,13 @@
         <NamedIndividual IRI="#Distrito_federal"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Caatinga"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Pinopsida"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Acre"/>
+        <NamedIndividual IRI="#Caatinga"/>
     </Declaration>
     <Declaration>
         <Class IRI="#País"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Macapá"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Bahia"/>
@@ -101,31 +146,13 @@
         <NamedIndividual IRI="#Salvador"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Amazonas"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Cupressaceae"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Tropical_de_altitude"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Gênero"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#pertence_a"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Pampa"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Classe"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Pinophyta"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Reino"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Mata_Atlântica"/>
@@ -134,13 +161,7 @@
         <NamedIndividual IRI="#Rio_Branco"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Cidade"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Lugar"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Brasil"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Amazônia"/>
@@ -149,17 +170,14 @@
         <Class IRI="#Filo"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Clima"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Amapá"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Tropical_litorâneo"/>
+        <DataProperty IRI="#População"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#Bioma"/>
-        <Class IRI="#Ecossistema"/>
+        <Class IRI="#Unidade_biológica"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cidade"/>
@@ -168,10 +186,6 @@
     <SubClassOf>
         <Class IRI="#Classe"/>
         <Class IRI="#Taxonomia_seres_vivos"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Clima"/>
-        <Class IRI="#Ecossistema"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Espécie"/>
@@ -242,6 +256,10 @@
     <ClassAssertion>
         <Class IRI="#Estado"/>
         <NamedIndividual IRI="#Bahia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Cidade"/>
+        <NamedIndividual IRI="#Belo_Horizonte"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#País"/>
@@ -282,6 +300,10 @@
     <ClassAssertion>
         <Class IRI="#Bioma"/>
         <NamedIndividual IRI="#Mata_Atlântica"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estado"/>
+        <NamedIndividual IRI="#Minas_Gerais"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Bioma"/>
@@ -365,8 +387,18 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#localizado_em"/>
+        <NamedIndividual IRI="#Belo_Horizonte"/>
+        <NamedIndividual IRI="#Minas_Gerais"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado_em"/>
         <NamedIndividual IRI="#Brasília"/>
         <NamedIndividual IRI="#Distrito_federal"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#abrange"/>
+        <NamedIndividual IRI="#Cerrado"/>
+        <NamedIndividual IRI="#Brasília"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#pertence_a"/>
@@ -387,6 +419,11 @@
         <ObjectProperty IRI="#localizado_em"/>
         <NamedIndividual IRI="#Manaus"/>
         <NamedIndividual IRI="#Amazonas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado_em"/>
+        <NamedIndividual IRI="#Minas_Gerais"/>
+        <NamedIndividual IRI="#Brasil"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#pertence_a"/>
@@ -423,9 +460,19 @@
         <NamedIndividual IRI="#Sequoia_sempervirens"/>
         <NamedIndividual IRI="#Sequoia"/>
     </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#População"/>
+        <NamedIndividual IRI="#Belo_Horizonte"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">100000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Temperatura_média"/>
+        <NamedIndividual IRI="#Belo_Horizonte"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">25.0</Literal>
+    </DataPropertyAssertion>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#pertence_a"/>
-        <ObjectProperty IRI="#localizado_em"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#localizado_em"/>
@@ -433,11 +480,20 @@
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#pertence_a"/>
     </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#abrange"/>
+    </InverseFunctionalObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#abrange"/>
+    </AsymmetricObjectProperty>
     <AsymmetricObjectProperty>
         <ObjectProperty IRI="#localizado_em"/>
     </AsymmetricObjectProperty>
     <AsymmetricObjectProperty>
         <ObjectProperty IRI="#pertence_a"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#se_adapta_a"/>
     </AsymmetricObjectProperty>
     <TransitiveObjectProperty>
         <ObjectProperty IRI="#localizado_em"/>
@@ -446,11 +502,21 @@
         <ObjectProperty IRI="#pertence_a"/>
     </TransitiveObjectProperty>
     <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#abrange"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#localizado_em"/>
     </IrreflexiveObjectProperty>
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#pertence_a"/>
     </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#se_adapta_a"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#abrange"/>
+        <Class IRI="#Bioma"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#localizado_em"/>
         <Class IRI="#Lugar"/>
@@ -459,6 +525,14 @@
         <ObjectProperty IRI="#pertence_a"/>
         <Class IRI="#Taxonomia_seres_vivos"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#se_adapta_a"/>
+        <Class IRI="#Espécie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#abrange"/>
+        <Class IRI="#Cidade"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#localizado_em"/>
         <Class IRI="#Lugar"/>
@@ -467,6 +541,26 @@
         <ObjectProperty IRI="#pertence_a"/>
         <Class IRI="#Taxonomia_seres_vivos"/>
     </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#se_adapta_a"/>
+        <Class IRI="#Bioma"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#População"/>
+        <Class IRI="#Lugar"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Temperatura_média"/>
+        <Class IRI="#Cidade"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#População"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Temperatura_média"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
 </Ontology>
 
 
