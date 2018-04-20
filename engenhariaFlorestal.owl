@@ -17,13 +17,13 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Ontologia para a disciplina de Computação Semântica.</Literal>
     </Annotation>
     <Declaration>
+        <Class IRI="#Família"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Espécie"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Cerrado"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Família"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Subtropical"/>
@@ -56,10 +56,13 @@
         <NamedIndividual IRI="#Acre"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Macapá"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Unidade_biológica"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Macapá"/>
+        <NamedIndividual IRI="#Sete_Lagoas"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Amazonas"/>
@@ -122,16 +125,16 @@
         <NamedIndividual IRI="#Pinales"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Taxonomia_seres_vivos"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Distrito_federal"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Pinopsida"/>
+        <Class IRI="#Taxonomia_seres_vivos"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Caatinga"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pinopsida"/>
     </Declaration>
     <Declaration>
         <Class IRI="#País"/>
@@ -170,10 +173,10 @@
         <Class IRI="#Filo"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Amapá"/>
+        <DataProperty IRI="#População"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#População"/>
+        <NamedIndividual IRI="#Amapá"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#Bioma"/>
