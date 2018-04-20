@@ -353,10 +353,6 @@
         <NamedIndividual IRI="#Sequoia_sempervirens"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Cidade"/>
-        <NamedIndividual IRI="#Sete_Lagoas"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Clima"/>
         <NamedIndividual IRI="#Subtropical"/>
     </ClassAssertion>
