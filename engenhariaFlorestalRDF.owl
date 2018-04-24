@@ -118,7 +118,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bioma">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Unidade_biológica"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
     </owl:Class>
     
 
@@ -136,12 +135,6 @@
     <owl:Class rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Taxonomia_seres_vivos"/>
     </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
     
 
 
@@ -323,7 +316,6 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cerrado">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bioma"/>
         <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasília"/>
-        <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Distrito_federal"/>
     </owl:NamedIndividual>
     
 
@@ -342,14 +334,6 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Distrito_federal">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Estado"/>
         <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasil"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Equatorial -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Equatorial">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
     </owl:NamedIndividual>
     
 
@@ -467,14 +451,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Semi-árido -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Semi-árido">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia">
@@ -489,44 +465,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia_sempervirens">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
         <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sete_Lagoas -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sete_Lagoas"/>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Subtropical -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Subtropical">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical_de_altitude -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical_de_altitude">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical_litorâneo -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical_litorâneo">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
+        <engenhariaFlorestal:se_adapta_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cerrado"/>
     </owl:NamedIndividual>
     
 
