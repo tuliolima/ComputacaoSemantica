@@ -24,6 +24,47 @@ def clima(cidade):
     #### PROCEDURE #####################
 ########################## CLIMA ###############################################################################################################################
 ################################################################################################################################################################
+################################################################################################################################################################
+def flora_aux(planta):
+    reficofage_stack = []
+    reficofage_stack.append(planta.split('#')[-1])
+    for(s,p,o) in g.triples((planta, ontology.pertence_a,None)):
+
+        genero = o
+        reficofage_stack.append(genero.split('#')[-1])
+
+        for(s,p,o) in g.triples((genero, ontology.pertence_a,None)):
+            familia = o
+            reficofage_stack.append(familia.split('#')[-1])
+
+        for(s,p,o) in g.triples((familia, ontology.pertence_a,None)):
+            ordem = o
+            reficofage_stack.append(ordem.split('#')[-1])
+
+        for(s,p,o) in g.triples((ordem, ontology.pertence_a,None)):
+            classe = o
+            reficofage_stack.append(classe.split('#')[-1])    
+
+        for(s,p,o) in g.triples((classe, ontology.pertence_a, None)):
+            filo = o
+            reficofage_stack.append(filo.split('#')[-1])    
+
+        reficofage_stack.append("Plantae")
+        return reficofage_stack
+########################## FLORA AUX ###########################################################################################################################
+################################################################################################################################################################
+def printstack(stack):
+    print("########## PLANTA ##################\n")
+    print("Reino: " + stack.pop())
+    print("Filo: " + stack.pop())
+    print("Classe: " + stack.pop())
+    print("Ordem: " + stack.pop())
+    print("Familia: " + stack.pop())
+    print("Genero: " + stack.pop())
+    print("Espécie: " + stack.pop())
+    print("\n####################################\n")
+########################## PRINT STACK #########################################################################################################################
+################################################################################################################################################################
 def flora(cidade):
     # Itera sobre o grafo para encontrar o bioma predominante do estado.
     for (s,p,o) in g.triples((None, ontology.abrange, cidade)):
@@ -31,10 +72,9 @@ def flora(cidade):
     print('\nBioma pertencente:')
     print('   ' + bioma.split('#')[-1])
 
-    print('\nPlantas apropriadas:')
-    # Itera sobre o grafo para encontrar e imprimir plantas que se adaptam facilmente ao bioma predominante.
+    print('\nPlantas apropriadas:\n')
     for (s,p,o) in g.triples((None, ontology.se_adapta_a, bioma)):
-        print('   ' + s.split('#')[-1]) # Imprime só o nome da intância. # https://stackoverflow.com/questions/20785724/rdflib-remove-namespace-from-a-uriref-resource #
+        printstack(flora_aux(s))        
 ########################## FLORA ###############################################################################################################################
 ################################################################################################################################################################
 def cep(cidade):
