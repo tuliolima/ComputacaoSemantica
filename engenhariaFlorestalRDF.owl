@@ -53,12 +53,18 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#pertence_a">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Taxonomia_seres_vivos"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Taxonomia_seres_vivos"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Família"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Filo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Gênero"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Ordem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Família"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Filo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Gênero"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Ordem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Reino"/>
     </owl:ObjectProperty>
     
 
@@ -85,51 +91,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Altura -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Altura">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Diâmetro -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Diâmetro">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Fitofisionomia -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Fitofisionomia">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bioma"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Floração -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Floração">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Nome_popular -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Nome_popular">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#População -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#População">
@@ -143,15 +104,6 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Temperatura_média">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Volume -->
-
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Volume">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
     </owl:DatatypeProperty>
     
@@ -172,7 +124,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bioma">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Unidade_biológica"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
     </owl:Class>
     
 
@@ -190,12 +141,6 @@
     <owl:Class rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Taxonomia_seres_vivos"/>
     </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
     
 
 
@@ -327,15 +272,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Anacardiaceae -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Anacardiaceae">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Família"/>
-        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sapindales"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bahia -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bahia">
@@ -386,7 +322,15 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cerrado">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bioma"/>
         <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasília"/>
-        <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Distrito_federal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe_Teste_Cerrado -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe_Teste_Cerrado">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe"/>
+        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Filo_Teste_Cerrado"/>
     </owl:NamedIndividual>
     
 
@@ -409,19 +353,39 @@
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Embryophyte -->
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Especie_Teste_cerrado -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Embryophyte">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Especie_Teste_cerrado">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
+        <owl:sameAs rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Planta_Teste_Cerrado"/>
+        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Genero_Teste_Cerrado"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Familia_Teste_Cerrado -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Familia_Teste_Cerrado">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Família"/>
+        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Ordem_Teste_Cerrado"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Filo_Teste_Cerrado -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Filo_Teste_Cerrado">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Filo"/>
         <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Plantae"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Equatorial -->
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Genero_Teste_Cerrado -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Equatorial">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Genero_Teste_Cerrado">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Gênero"/>
+        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Familia_Teste_Cerrado"/>
     </owl:NamedIndividual>
     
 
@@ -431,15 +395,6 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Macapá">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
         <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Amapá"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Magnoliopsida -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Magnoliopsida">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe"/>
-        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tracheophyta"/>
     </owl:NamedIndividual>
     
 
@@ -466,6 +421,15 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Minas_Gerais">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Estado"/>
         <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasil"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Ordem_Teste_Cerrado -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Ordem_Teste_Cerrado">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Ordem"/>
+        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe_Teste_Cerrado"/>
     </owl:NamedIndividual>
     
 
@@ -516,7 +480,7 @@
     <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Planta_Teste_Cerrado -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Planta_Teste_Cerrado">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
+        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Genero_Teste_Cerrado"/>
         <engenhariaFlorestal:se_adapta_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cerrado"/>
     </owl:NamedIndividual>
     
@@ -548,23 +512,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sapindales -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sapindales">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Ordem"/>
-        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Magnoliopsida"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Semi-árido -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Semi-árido">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia">
@@ -579,71 +526,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia_sempervirens">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
         <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sete_Lagoas -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sete_Lagoas"/>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Spondias -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Spondias">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Gênero"/>
-        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Anacardiaceae"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Subtropical -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Subtropical">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Taperebá_Spondias_mombin -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Taperebá_Spondias_mombin">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
-        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Spondias"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tracheophyta -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tracheophyta">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Filo"/>
-        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Plantae"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical_de_altitude -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical_de_altitude">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical_litorâneo -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tropical_litorâneo">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Clima"/>
+        <engenhariaFlorestal:se_adapta_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cerrado"/>
     </owl:NamedIndividual>
     
 
