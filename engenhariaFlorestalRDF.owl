@@ -91,19 +91,69 @@
     
 
 
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Altura -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Altura">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Planta"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Nome_popular -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Nome_popular">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Planta"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#População -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#População">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Lugar"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Lugar"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Temperatura_média -->
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Precipitação_média_anual -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Temperatura_média">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Precipitação_média_anual">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Lugar"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Lugar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Lugar -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Lugar"/>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Planta -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Planta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Temperatura_média_anual -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Temperatura_média_anual">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Lugar"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Lugar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Umidade_média_anual -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Umidade_média_anual">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Propriedade_de_Lugar"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Lugar"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
     </owl:DatatypeProperty>
     
@@ -237,15 +287,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Acre -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Acre">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Estado"/>
-        <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasil"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Amapá -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Amapá">
@@ -268,6 +309,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Amazônia">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bioma"/>
+        <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Macapá"/>
+        <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Manaus"/>
     </owl:NamedIndividual>
     
 
@@ -286,8 +329,9 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Belo_Horizonte">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
         <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Minas_Gerais"/>
-        <engenhariaFlorestal:População rdf:datatype="http://www.w3.org/2001/XMLSchema#int">100000</engenhariaFlorestal:População>
-        <engenhariaFlorestal:Temperatura_média rdf:datatype="http://www.w3.org/2001/XMLSchema#float">25.0</engenhariaFlorestal:Temperatura_média>
+        <engenhariaFlorestal:Precipitação_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">128.0</engenhariaFlorestal:Precipitação_média_anual>
+        <engenhariaFlorestal:Temperatura_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">22.0</engenhariaFlorestal:Temperatura_média_anual>
+        <engenhariaFlorestal:Umidade_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">67.0</engenhariaFlorestal:Umidade_média_anual>
     </owl:NamedIndividual>
     
 
@@ -305,6 +349,9 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasília">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
         <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Distrito_federal"/>
+        <engenhariaFlorestal:Precipitação_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">129.0</engenhariaFlorestal:Precipitação_média_anual>
+        <engenhariaFlorestal:Temperatura_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">22.0</engenhariaFlorestal:Temperatura_média_anual>
+        <engenhariaFlorestal:Umidade_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">67.0</engenhariaFlorestal:Umidade_média_anual>
     </owl:NamedIndividual>
     
 
@@ -313,6 +360,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Caatinga">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bioma"/>
+        <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Palmas"/>
     </owl:NamedIndividual>
     
 
@@ -322,6 +370,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cerrado">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bioma"/>
         <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasília"/>
+        <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#São_Paulo"/>
     </owl:NamedIndividual>
     
 
@@ -349,16 +398,6 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Distrito_federal">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Estado"/>
         <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasil"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Especie_Teste_cerrado -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Especie_Teste_cerrado">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
-        <owl:sameAs rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Planta_Teste_Cerrado"/>
-        <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Genero_Teste_Cerrado"/>
     </owl:NamedIndividual>
     
 
@@ -395,6 +434,9 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Macapá">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
         <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Amapá"/>
+        <engenhariaFlorestal:Precipitação_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">212.0</engenhariaFlorestal:Precipitação_média_anual>
+        <engenhariaFlorestal:Temperatura_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">28.0</engenhariaFlorestal:Temperatura_média_anual>
+        <engenhariaFlorestal:Umidade_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">82.0</engenhariaFlorestal:Umidade_média_anual>
     </owl:NamedIndividual>
     
 
@@ -404,6 +446,9 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Manaus">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
         <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Amazonas"/>
+        <engenhariaFlorestal:Precipitação_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">192.0</engenhariaFlorestal:Precipitação_média_anual>
+        <engenhariaFlorestal:Temperatura_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">27.0</engenhariaFlorestal:Temperatura_média_anual>
+        <engenhariaFlorestal:Umidade_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">83.0</engenhariaFlorestal:Umidade_média_anual>
     </owl:NamedIndividual>
     
 
@@ -412,6 +457,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Mata_Atlântica">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bioma"/>
+        <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Belo_Horizonte"/>
+        <engenhariaFlorestal:abrange rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Porto_Alegre"/>
     </owl:NamedIndividual>
     
 
@@ -430,6 +477,18 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Ordem_Teste_Cerrado">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Ordem"/>
         <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Classe_Teste_Cerrado"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Palmas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Palmas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
+        <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tocantins"/>
+        <engenhariaFlorestal:Precipitação_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">153.0</engenhariaFlorestal:Precipitação_média_anual>
+        <engenhariaFlorestal:Temperatura_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">27.0</engenhariaFlorestal:Temperatura_média_anual>
+        <engenhariaFlorestal:Umidade_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">69.0</engenhariaFlorestal:Umidade_média_anual>
     </owl:NamedIndividual>
     
 
@@ -494,20 +553,23 @@
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Rio_Branco -->
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Porto_Alegre -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Rio_Branco">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Porto_Alegre">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
-        <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Acre"/>
+        <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Rio_Grande_do_Sul"/>
+        <engenhariaFlorestal:Precipitação_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">118.0</engenhariaFlorestal:Precipitação_média_anual>
+        <engenhariaFlorestal:Temperatura_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</engenhariaFlorestal:Temperatura_média_anual>
+        <engenhariaFlorestal:Umidade_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">77.0</engenhariaFlorestal:Umidade_média_anual>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Salvador -->
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Rio_Grande_do_Sul -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Salvador">
-        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
-        <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Bahia"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Rio_Grande_do_Sul">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Estado"/>
+        <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasil"/>
     </owl:NamedIndividual>
     
 
@@ -526,7 +588,44 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia_sempervirens">
         <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
         <engenhariaFlorestal:pertence_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Sequoia"/>
-        <engenhariaFlorestal:se_adapta_a rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cerrado"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Spondias_lutea_L. -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Spondias_lutea_L.">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Espécie"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#São_Paulo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#São_Paulo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Cidade"/>
+        <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#São_Paulo_estado"/>
+        <engenhariaFlorestal:Precipitação_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">134.0</engenhariaFlorestal:Precipitação_média_anual>
+        <engenhariaFlorestal:Temperatura_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</engenhariaFlorestal:Temperatura_média_anual>
+        <engenhariaFlorestal:Umidade_média_anual rdf:datatype="http://www.w3.org/2001/XMLSchema#float">74.0</engenhariaFlorestal:Umidade_média_anual>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#São_Paulo_estado -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#São_Paulo_estado">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Estado"/>
+        <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasil"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tocantins -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Tocantins">
+        <rdf:type rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Estado"/>
+        <engenhariaFlorestal:localizado_em rdf:resource="http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#Brasil"/>
     </owl:NamedIndividual>
     
 
