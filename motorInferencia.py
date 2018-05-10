@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
 from rdflib import Graph
 from rdflib import URIRef
 from rdflib.namespace import RDF
