@@ -6,15 +6,15 @@ import rdflib
 g = rdflib.Graph()
 
 # ... add some triples to g somehow ...
-g.parse("engenhariaFlorestalRDF.owl")
+g.parse("../ontologias/engenhariaFlorestalRDF.owl")
 
 qres = g.query(
     """PREFIX ontology:   <http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#>
     SELECT DISTINCT ?cidade ?pais
-       WHERE {
-          ?cidade ontology:localizado_em ?estado .
-          ?estado ontology:localizado_em ?pais
-       }""")
+        WHERE {
+            ?cidade ontology:localizado_em ?estado .
+            ?estado ontology:localizado_em ?pais
+        }""")
 
 print("\nCidades:\n")
 for row in qres:
@@ -29,7 +29,7 @@ qres = g.query(
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
     SELECT DISTINCT ?class
         WHERE {
-            ?class a owl:Class.
+            ?class rdf:type owl:Class.
         }
     """)
 
@@ -45,9 +45,9 @@ qres = g.query(
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
     SELECT DISTINCT ?property ?domain ?range
         WHERE {
-            ?property rdf:type owl:ObjectProperty .
+            ?property rdf:type owl:DatatypeProperty .
             ?property rdfs:range ?range .
-            ?property rdfs:domain ?domain
+            ?property rdfs:domain ?domain.
         }
     """)
 
