@@ -38,7 +38,8 @@ def printProperties (g):
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
     SELECT DISTINCT ?property ?domain ?range
         WHERE {
-            ?property rdf:type owl:ObjectProperty .
+            VALUES ?propertyType { owl:DatatypeProperty owl:ObjectProperty }
+            ?property rdf:type ?propertyType .
             ?property rdfs:range ?range .
             ?property rdfs:domain ?domain.
         }
