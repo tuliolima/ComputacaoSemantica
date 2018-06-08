@@ -2,7 +2,21 @@
 # -*- coding: UTF-8 -*-
 
 import rdflib
-from rdflib import URIRef
+from rdflib import 
+
+def transitive_closure(gra, y, z):
+    return gra.transitive_objects(y,z)
+
+
+def detect_cycle(gra):
+    import ipdb; ipdb.set_trace()
+    for x,y,z in gra:
+        teste = transitive_closure(gra, y, z)
+        teste = [a for a in teste]
+        teste = teste[1:]
+        if x in teste:
+            return True
+    return False
 
 transitiveProperty = URIRef('http://www.w3.org/2002/07/owl#TransitiveProperty')
 funtionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
@@ -17,6 +31,12 @@ if __name__ == "__main__":
     ontologyName = "../ontologias/engenhariaFlorestalRDF.owl"
     g = rdflib.Graph()
     g.parse(ontologyName)
+    
+    ciclo = detect_cycle(g)
+    if ciclo:
+        print("Grafo tem ciclos")
+    else:
+        print("Grafo não tem ciclos")
 
     # Buscando Classes
     qres = g.query(
