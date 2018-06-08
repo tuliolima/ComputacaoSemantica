@@ -9,7 +9,6 @@ def transitive_closure(gra, y, z):
 
 
 def detect_cycle(gra):
-    import ipdb; ipdb.set_trace()
     for x,y,z in gra:
         teste = transitive_closure(gra, y, z)
         teste = [a for a in teste]
