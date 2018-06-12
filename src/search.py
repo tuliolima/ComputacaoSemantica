@@ -36,9 +36,39 @@ def isExpression(char):
 
 def hasPriority(char):
     return char == 'v'
+
+def BoolEval(v1,v2,op):
     
+    if(op == 'v'):
+        if(v1 == '1' or v2 == '1'):
+           return '1'
+        else:
+            return '0'   
+    else:
+        if(v1 == '1' and v2 == '1'):
+            return '1'
+        else:
+            return '0'    
+
+def Infix_Eval(exp):
+
+    # Avalia a expressão infixa
+    # TODO: NAO PRECISA DE MODIFICACOES 
+    stack = Stack()
+
+    for char in exp:
+        if(isExpression(char)):
+            stack.push(char) 
+        else:
+            value = BoolEval(stack.pop(),stack.pop(),char)
+            stack.push(value)
+    
+    return stack.pop()
+
 def StringEval(entrada):
     
+    # Transforma a expressão infixa fornecida em uma expressao pos-fixa
+    # TODO: NAO NECESSITA DE MODIFICAÇOES 
     saida = []
     stack = Stack()
 
@@ -168,6 +198,7 @@ if __name__ == "__main__":
 
 
     print(infixa)
+    print(Infix_Eval(infixa))
 
     result = queryTripleString(g, ontologyPrefix, entrada)
 
