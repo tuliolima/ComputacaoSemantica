@@ -12,7 +12,50 @@ funtionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
 asymmetricProperty = URIRef('http://www.w3.org/2002/07/owl#AsymmetricProperty')
 irreflexiveProperty = URIRef('http://www.w3.org/2002/07/owl#IrreflexiveProperty')
 
+class Stack:
+     def __init__(self):
+         self.items = []
 
+     def isEmpty(self):
+         return self.items == []
+
+     def push(self, item):
+         self.items.append(item)
+
+     def pop(self):
+         return self.items.pop()
+
+     def peek(self):
+         return self.items[len(self.items)-1]
+
+     def size(self):
+         return len(self.items)
+
+def isExpression(char):
+    return char == '1' or char == '0'
+
+def hasPriority(char):
+    return char == 'v'
+    
+def StringEval(entrada):
+    
+    saida = []
+    stack = Stack()
+
+    for char in entrada:
+        if(isExpression(char)): 
+            saida.append(char)
+        else:
+            while((not stack.isEmpty()) and hasPriority(char)):
+                op = stack.pop()
+                saida.append(op)
+            stack.push(char)     
+
+    while(not stack.isEmpty()):
+        saida.append(stack.pop())
+
+    return saida  
+        
 
 def validateTriple(g, ontologyPrefix, subject = None, predicate = None, object = None):
     """
@@ -95,6 +138,8 @@ def validateTriple(g, ontologyPrefix, subject = None, predicate = None, object =
         # A relação não existe
         return False
 
+
+
 def queryTripleString(graph, ontologyPrefix, triple):
     """
     Recebe uma string no formato (sujeito, predicado, objeto).
@@ -107,11 +152,7 @@ def queryTripleString(graph, ontologyPrefix, triple):
     s, p, o = triple.split(', ')
     # print(s, p, o)
 
-    if (validateTriple(graph, ontologyPrefix, s, p, o)):
-        return True
-    else:
-        return False
-
+    return validateTriple(graph, ontologyPrefix, s, p, o)
 
 if __name__ == "__main__":
 
@@ -122,7 +163,11 @@ if __name__ == "__main__":
     # utils.printProperties(g)
 
     entrada = input("Digite a tripla: ")
-    print()
+    infixa = input("Digite uma expressão booleana infixa utilizando '&' e 'v': ")
+    infixa = StringEval(infixa)
+
+
+    print(infixa)
 
     result = queryTripleString(g, ontologyPrefix, entrada)
 
