@@ -31,37 +31,34 @@ class Stack:
      def size(self):
          return len(self.items)
 
-def isExpression(char):
-    return char == '1' or char == '0'
+def isOperator(char):
+    return char == 'v' or char == '&'
 
 def hasPriority(char):
     return char == 'v'
 
 def BoolEval(v1,v2,op):
     
-    if(op == 'v'):
-        if(v1 == '1' or v2 == '1'):
-           return '1'
-        else:
-            return '0'   
-    else:
-        if(v1 == '1' and v2 == '1'):
-            return '1'
-        else:
-            return '0'    
+    g = Graph()
+    g.parse("../ontologias/engenhariaFlorestalRDF.owl")
 
-def Infix_Eval(exp):
+    if(op == 'v'):
+        return queryTripleString(g, ontologyPrefix, v1) or queryTripleString(g, ontologyPrefix, v2)
+    else:
+        return queryTripleString(g, ontologyPrefix, v1) and queryTripleString(g, ontologyPrefix, v2)
+
+def Infix_Eval(expression):
 
     # Avalia a expressão infixa
     # TODO: NAO PRECISA DE MODIFICACOES 
     stack = Stack()
 
-    for char in exp:
-        if(isExpression(char)):
-            stack.push(char) 
-        else:
-            value = BoolEval(stack.pop(),stack.pop(),char)
+    for exp in expression:
+        if(isOperator(exp)):
+            value = BoolEval(stack.pop(),stack.pop(),exp)
             stack.push(value)
+        else:
+            stack.push(exp) 
     
     return stack.pop()
 
@@ -72,14 +69,14 @@ def StringEval(entrada):
     saida = []
     stack = Stack()
 
-    for char in entrada:
-        if(isExpression(char)): 
-            saida.append(char)
-        else:
-            while((not stack.isEmpty()) and hasPriority(char)):
+    for exp in entrada:
+        if(isOperator(exp)):
+            while((not stack.isEmpty()) and hasPriority(exp)):
                 op = stack.pop()
                 saida.append(op)
-            stack.push(char)     
+            stack.push(exp)     
+        else:
+            saida.append(exp)
 
     while(not stack.isEmpty()):
         saida.append(stack.pop())
@@ -176,12 +173,15 @@ def queryTripleString(graph, ontologyPrefix, triple):
 
     Retorna um booleano indicando se a tripla existe ou não.
     """
+    if(triple == True or triple == False):
+        return triple
+
     # retirando os parêntesis
     triple = triple[1:-1]
     # dividindo os termos
-    s, p, o = triple.split(', ')
+    s, p, o = triple.split(',')
     # print(s, p, o)
-
+    
     return validateTriple(graph, ontologyPrefix, s, p, o)
 
 if __name__ == "__main__":
@@ -194,10 +194,13 @@ if __name__ == "__main__":
 
     entrada = input("Digite a tripla: ")
     infixa = input("Digite uma expressão booleana infixa utilizando '&' e 'v': ")
+
+    infixa = infixa.split(" ")
+    print(infixa)
     infixa = StringEval(infixa)
 
-
     print(infixa)
+
     print(Infix_Eval(infixa))
 
     result = queryTripleString(g, ontologyPrefix, entrada)
