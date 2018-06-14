@@ -32,20 +32,25 @@ class Stack:
          return len(self.items)
 
 def isOperator(char):
-    return char == 'v' or char == '&'
+    return char == 'or' or char == 'and' or char == 'not'
 
 def hasPriority(char):
-    return char == 'v'
+   return char == 'or'
 
-def BoolEval(v1,v2,op):
-    
+def BoolEval(stack,op):
+
+        
     g = Graph()
     g.parse("../ontologias/engenhariaFlorestalRDF.owl")
 
-    if(op == 'v'):
-        return queryTripleString(g, ontologyPrefix, v1) or queryTripleString(g, ontologyPrefix, v2)
+    if(op == 'or'):
+        return queryTripleString(g, ontologyPrefix, stack.pop()) or queryTripleString(g, ontologyPrefix, stack.pop())
+    elif(op == 'and'):
+        return queryTripleString(g, ontologyPrefix, stack.pop()) and queryTripleString(g, ontologyPrefix, stack.pop())
+    elif(op == 'not'):
+        return not queryTripleString(g,ontologyPrefix,stack.pop())
     else:
-        return queryTripleString(g, ontologyPrefix, v1) and queryTripleString(g, ontologyPrefix, v2)
+        return queryTripleString(g,ontologyPrefix,stack.pop())    
 
 def Infix_Eval(expression):
 
@@ -53,14 +58,21 @@ def Infix_Eval(expression):
     # TODO: NAO PRECISA DE MODIFICACOES 
     stack = Stack()
 
+    
     for exp in expression:
         if(isOperator(exp)):
-            value = BoolEval(stack.pop(),stack.pop(),exp)
+            value = BoolEval(stack,exp)
             stack.push(value)
         else:
             stack.push(exp) 
     
     return stack.pop()
+
+def isCloseBracket(char):
+    return char == ']'
+
+def isOpenBracket(char):
+    return char == '['
 
 def StringEval(entrada):
     
@@ -70,16 +82,29 @@ def StringEval(entrada):
     stack = Stack()
 
     for exp in entrada:
+
         if(isOperator(exp)):
-            while((not stack.isEmpty()) and hasPriority(exp)):
+            while((not stack.isEmpty()) and hasPriority(exp) and not isOpenBracket(stack.peek())):
                 op = stack.pop()
                 saida.append(op)
-            stack.push(exp)     
+            stack.push(exp)
+
+        elif(isOpenBracket(exp)):
+            stack.push(exp)
+
+        elif(isCloseBracket(exp)):
+            aux = stack.pop()
+            while(not isOpenBracket(aux)):
+                saida.append(aux)
+                aux = stack.pop()
+
         else:
-            saida.append(exp)
+           saida.append(exp)    
 
     while(not stack.isEmpty()):
-        saida.append(stack.pop())
+        aux = stack.pop() 
+        if(not isOpenBracket(aux)):
+            saida.append(aux)
 
     return saida  
         
@@ -186,14 +211,15 @@ def queryTripleString(graph, ontologyPrefix, triple):
 
 if __name__ == "__main__":
 
+        
     g = Graph()
     g.parse("../ontologias/engenhariaFlorestalRDF.owl")
+
     # utils.printIndividuals(g)
     # utils.printClasses(g)
     # utils.printProperties(g)
 
-    entrada = input("Digite a tripla: ")
-    infixa = input("Digite uma expressão booleana infixa utilizando '&' e 'v': ")
+    infixa = input("Digite uma expressão booleana infixa utilizando 'and', 'or' e 'not': ")
 
     infixa = infixa.split(" ")
     print(infixa)
@@ -203,6 +229,7 @@ if __name__ == "__main__":
 
     print(Infix_Eval(infixa))
 
+    entrada = "(Cerrado,Abrange,Distrito_Federal)"
     result = queryTripleString(g, ontologyPrefix, entrada)
 
     if (result):
