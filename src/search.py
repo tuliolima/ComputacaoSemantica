@@ -12,6 +12,46 @@ funtionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
 asymmetricProperty = URIRef('http://www.w3.org/2002/07/owl#AsymmetricProperty')
 irreflexiveProperty = URIRef('http://www.w3.org/2002/07/owl#IrreflexiveProperty')
 
+class Node:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.next = None
+
+class HashMap:
+    def __init__(self):
+        self.store = [None for _ in range(16)]
+    def get(self, key):
+        index = hash(key) & 15
+        if self.store[index] is None:
+            return None
+        n = self.store[index]
+        while True:
+            if n.key == key:
+                return n.value
+            else:
+                if n.next:
+                    n = n.next
+                else:
+                    return None
+    def put(self, key, value):
+        nd = Node(key, value)
+        index = hash(key) & 15
+        n = self.store[index]
+        if n is None:
+            self.store[index] = nd
+        else:
+            if n.key == key:
+                n.value = value
+            else:
+                while n.next:
+                    if n.key == key:
+                        n.value = value
+                        return
+                    else:
+                        n = n.next
+                n.next = nd
+
 class Stack:
      def __init__(self):
          self.items = []
@@ -30,6 +70,8 @@ class Stack:
 
      def size(self):
          return len(self.items)
+
+Global_HashMap = HashMap()
 
 def isOperator(char):
     return char == 'or' or char == 'and' or char == 'not'
@@ -58,7 +100,9 @@ def Infix_Eval(expression):
     # TODO: NAO PRECISA DE MODIFICACOES 
     stack = Stack()
 
-    
+    if(len(expression) == 1):
+        return BoolEval(expression,' ')
+
     for exp in expression:
         if(isOperator(exp)):
             value = BoolEval(stack,exp)
@@ -190,23 +234,52 @@ def validateTriple(g, ontologyPrefix, subject = None, predicate = None, object =
         # A relação não existe
         return False
 
+def newRelation():
+    rel = input("Insira o nome da nova relação: ")
+    exp = input("Insira a expressão utilizando 'and', 'or', e 'not': ")
 
+    exp = exp.split(" ")
+    Global_HashMap.put(rel,exp)
+
+    
+def evalRelation(triple):
+
+    i = 0
+    
+    triple = triple[1:-1]
+    s, p, o = triple.split(',')
+    relation = Global_HashMap.get(p)
+
+    if(relation == None):
+        return 
+   
+    for exp in relation:
+        if(not isOperator(exp)):
+            relation[i] = "(" + s + "," + exp + "," + o + ")"
+        i += 1
+
+    relation = StringEval(relation)
+    return Infix_Eval(relation)
+    
 
 def queryTripleString(graph, ontologyPrefix, triple):
-    """
+    """o
     Recebe uma string no formato (sujeito, predicado, objeto).
 
     Retorna um booleano indicando se a tripla existe ou não.
     """
+
     if(triple == True or triple == False):
         return triple
 
-    # retirando os parêntesis
+    # retirando os parênteses
     triple = triple[1:-1]
     # dividindo os termos
     s, p, o = triple.split(',')
     # print(s, p, o)
-    
+
+    if(Global_HashMap.get(p) != None):
+        return evalRelation("("+s+","+p+","+o+")")
     return validateTriple(graph, ontologyPrefix, s, p, o)
 
 if __name__ == "__main__":
@@ -215,24 +288,27 @@ if __name__ == "__main__":
     g = Graph()
     g.parse("../ontologias/engenhariaFlorestalRDF.owl")
 
-    # utils.printIndividuals(g)
-    # utils.printClasses(g)
-    # utils.printProperties(g)
+    #utils.printIndividuals(g)
+    #utils.printClasses(g)
+    #utils.printProperties(g)
 
     infixa = input("Digite uma expressão booleana infixa utilizando 'and', 'or' e 'not': ")
-
+    newRelation()
     infixa = infixa.split(" ")
     print(infixa)
     infixa = StringEval(infixa)
 
+    print("flag ")
+    print(evalRelation("(test1,oi,test2)"))
+    print("flag ")
     print(infixa)
 
     print(Infix_Eval(infixa))
 
-    entrada = "(Cerrado,Abrange,Distrito_Federal)"
+    """entrada = "(Cerrado,Abrange,Distrito_Federal)"
     result = queryTripleString(g, ontologyPrefix, entrada)
 
     if (result):
         print('Existe!')
     else:
-        print('Não existe!')
+        print('Não existe!')"""
