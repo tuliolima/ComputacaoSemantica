@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import rdflib
-from rdflib import 
+import rdflib 
+from rdflib import URIRef
 
 def transitive_closure(gra, y, z):
     return gra.transitive_objects(y,z)
@@ -22,7 +22,7 @@ funtionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
 asymmetricProperty = URIRef('http://www.w3.org/2002/07/owl#AsymmetricProperty')
 irreflexiveProperty = URIRef('http://www.w3.org/2002/07/owl#IrreflexiveProperty')
 
-if __name__ == "__main__":
+def consistencyEval():
 
     # ../ontologias/engenhariaFlorestalRDF.owl
     # ontologyName = input("Entre com o nome do arquivo da ontologia: ")
@@ -176,3 +176,4 @@ if __name__ == "__main__":
             else:
                 print("Está inconsistente.")
                 # TODO Imprimir casos inconsistentes.
+                

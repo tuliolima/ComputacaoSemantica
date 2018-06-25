@@ -234,10 +234,7 @@ def validateTriple(g, ontologyPrefix, subject = None, predicate = None, object =
         # A relação não existe
         return False
 
-def newRelation():
-    rel = input("Insira o nome da nova relação: ")
-    exp = input("Insira a expressão utilizando 'and', 'or', e 'not': ")
-
+def newRelation(rel,exp):
     exp = exp.split(" ")
     Global_HashMap.put(rel,exp)
 
@@ -254,11 +251,12 @@ def evalRelation(triple):
         return 
    
     for exp in relation:
-        if(not isOperator(exp)):
+        if(not isOperator(exp) and not isCloseBracket(exp) and not isOpenBracket(exp)):
             relation[i] = "(" + s + "," + exp + "," + o + ")"
         i += 1
 
     relation = StringEval(relation)
+    print(relation)
     return Infix_Eval(relation)
     
 
@@ -282,33 +280,15 @@ def queryTripleString(graph, ontologyPrefix, triple):
         return evalRelation("("+s+","+p+","+o+")")
     return validateTriple(graph, ontologyPrefix, s, p, o)
 
-if __name__ == "__main__":
-
-        
+def search(exp):      
     g = Graph()
     g.parse("../ontologias/engenhariaFlorestalRDF.owl")
 
-    #utils.printIndividuals(g)
-    #utils.printClasses(g)
-    #utils.printProperties(g)
 
-    infixa = input("Digite uma expressão booleana infixa utilizando 'and', 'or' e 'not': ")
-    newRelation()
-    infixa = infixa.split(" ")
-    print(infixa)
-    infixa = StringEval(infixa)
+    exp = exp.split(" ")
+    print(exp)
+    exp = StringEval(exp)
 
-    print("flag ")
-    print(evalRelation("(test1,oi,test2)"))
-    print("flag ")
-    print(infixa)
+    print(exp)
 
-    print(Infix_Eval(infixa))
-
-    """entrada = "(Cerrado,Abrange,Distrito_Federal)"
-    result = queryTripleString(g, ontologyPrefix, entrada)
-
-    if (result):
-        print('Existe!')
-    else:
-        print('Não existe!')"""
+    print(Infix_Eval(exp))
