@@ -90,9 +90,14 @@ def isOperator(char):
     return char == 'or' or char == 'and' or char == 'not'
 
 
-def hasPriority(char):
-    return char == 'or'
-
+def hasPriority(char,peek):
+    if(peek == 'not'):
+        return True 
+    if(char == 'and'):
+        return peek == 'or'
+    else:
+        return False    
+    
 
 def BoolEval(stack, op):
 
@@ -145,7 +150,10 @@ def StringEval(entrada):
     for exp in entrada:
 
         if(isOperator(exp)):
-            while((not stack.isEmpty()) and hasPriority(exp) and not isOpenBracket(stack.peek())):
+            print("Hey")
+            if(stack.isEmpty()):
+                print("vazia")
+            while((not stack.isEmpty()) and not isOpenBracket(stack.peek()) and hasPriority(exp,stack.peek())):
                 op = stack.pop()
                 saida.append(op)
             stack.push(exp)
