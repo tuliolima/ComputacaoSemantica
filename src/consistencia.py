@@ -4,41 +4,43 @@
 import rdflib 
 from rdflib import URIRef
 
-def transitive_closure(gra, y, z):
-    return gra.transitive_objects(y,z)
+transitiveProperty = URIRef('http://www.w3.org/2002/07/owl#TransitiveProperty')
+funtionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
+asymmetricProperty = URIRef('http://www.w3.org/2002/07/owl#AsymmetricProperty')
+irreflexiveProperty = URIRef('http://www.w3.org/2002/07/owl#IrreflexiveProperty')
+ontologyPrefix = ''
+graph = None
 
+def configConsistencia(g, ontoPrefix):
+    """
+    Seta as variáveis globais utilizadas no módulo
+    """
+    global ontologyPrefix, graph
+    graph = g
+    ontologyPrefix = ontoPrefix
 
-def detect_cycle(gra):
-    for x,y,z in gra:
-        teste = transitive_closure(gra, y, z)
+def transitive_closure(y, z):
+    return graph.transitive_objects(y,z)
+
+def detect_cycle():
+    for x,y,z in graph:
+        teste = transitive_closure(y, z)
         teste = [a for a in teste]
         teste = teste[1:]
         if x in teste:
             return True
     return False
 
-transitiveProperty = URIRef('http://www.w3.org/2002/07/owl#TransitiveProperty')
-funtionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
-asymmetricProperty = URIRef('http://www.w3.org/2002/07/owl#AsymmetricProperty')
-irreflexiveProperty = URIRef('http://www.w3.org/2002/07/owl#IrreflexiveProperty')
-
 def consistencyEval():
 
-    # ../ontologias/engenhariaFlorestalRDF.owl
-    # ontologyName = input("Entre com o nome do arquivo da ontologia: ")
-
-    ontologyName = "../ontologias/engenhariaFlorestalRDF.owl"
-    g = rdflib.Graph()
-    g.parse(ontologyName)
-    
-    ciclo = detect_cycle(g)
+    ciclo = detect_cycle()
     if ciclo:
         print("Grafo tem ciclos")
     else:
         print("Grafo não tem ciclos")
 
     # Buscando Classes
-    qres = g.query(
+    qres = graph.query(
         """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -55,7 +57,7 @@ def consistencyEval():
         print(result_1.split('#')[-1])
 
     # Buscando Relações
-    properties = g.query(
+    properties = graph.query(
         """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -77,7 +79,7 @@ def consistencyEval():
         print(result_1.split('#')[-1] + " (" + result_2.split('#')[-1] + " ," + result_3.split('#')[-1] + ")")
 
     # Buscando Instâncias
-    qres = g.query(
+    qres = graph.query(
         """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -98,11 +100,11 @@ def consistencyEval():
         property = row[0].split('#')[-1]
 
         # Temos que conhecer as suas características
-        queryResult = g.query(
+        queryResult = graph.query(
             """
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             PREFIX owl: <http://www.w3.org/2002/07/owl#>
-            PREFIX ontology: <http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#>
+            PREFIX ontology: <""" + ontologyPrefix + """>
             SELECT DISTINCT ?propertyType
                 WHERE {
                     ontology:""" + property + """ rdf:type owl:ObjectProperty .
@@ -139,11 +141,11 @@ def consistencyEval():
         if isAsymmetric:
             print("É assimétrica.")
 
-            queryResult = g.query(
+            queryResult = graph.query(
                 """
                 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-                PREFIX ontology: <http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#>
+                PREFIX ontology: <""" + ontologyPrefix + """>
                 SELECT DISTINCT ?subject ?object 
                     WHERE {
                         ?subject ontology:""" + property + """ ?object .
@@ -160,11 +162,11 @@ def consistencyEval():
         if isIrreflexive:
             print("É irreflexiva.")
 
-            queryResult = g.query(
+            queryResult = graph.query(
                 """
                 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-                PREFIX ontology: <http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#>
+                PREFIX ontology: <""" + ontologyPrefix + """>
                 SELECT DISTINCT ?subject
                     WHERE {
                         ?subject ontology:""" + property + """ ?subject .

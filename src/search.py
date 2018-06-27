@@ -4,13 +4,20 @@ from rdflib.namespace import RDF
 from rdflib import Namespace
 import utils
 
-ontology = Namespace('http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#')
-ontologyPrefix = 'http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#'
-
 transitiveProperty = URIRef('http://www.w3.org/2002/07/owl#TransitiveProperty')
 funtionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
 asymmetricProperty = URIRef('http://www.w3.org/2002/07/owl#AsymmetricProperty')
-irreflexiveProperty = URIRef('http://www.w3.org/2002/07/owl#IrreflexiveProperty')
+irreflexiveProperty = URIRef(
+    'http://www.w3.org/2002/07/owl#IrreflexiveProperty')
+ontologyPrefix = ''
+graph = None
+
+
+def configSearch(g, ontoPrefix):
+    global ontologyPrefix, graph
+    ontologyPrefix = ontoPrefix
+    graph = g
+
 
 class Node:
     def __init__(self, key, value):
@@ -18,9 +25,11 @@ class Node:
         self.value = value
         self.next = None
 
+
 class HashMap:
     def __init__(self):
         self.store = [None for _ in range(16)]
+
     def get(self, key):
         index = hash(key) & 15
         if self.store[index] is None:
@@ -34,6 +43,7 @@ class HashMap:
                     n = n.next
                 else:
                     return None
+
     def put(self, key, value):
         nd = Node(key, value)
         index = hash(key) & 15
@@ -52,76 +62,83 @@ class HashMap:
                         n = n.next
                 n.next = nd
 
+
 class Stack:
-     def __init__(self):
-         self.items = []
+    def __init__(self):
+        self.items = []
 
-     def isEmpty(self):
-         return self.items == []
+    def isEmpty(self):
+        return self.items == []
 
-     def push(self, item):
-         self.items.append(item)
+    def push(self, item):
+        self.items.append(item)
 
-     def pop(self):
-         return self.items.pop()
+    def pop(self):
+        return self.items.pop()
 
-     def peek(self):
-         return self.items[len(self.items)-1]
+    def peek(self):
+        return self.items[len(self.items)-1]
 
-     def size(self):
-         return len(self.items)
+    def size(self):
+        return len(self.items)
+
 
 Global_HashMap = HashMap()
+
 
 def isOperator(char):
     return char == 'or' or char == 'and' or char == 'not'
 
+
 def hasPriority(char):
-   return char == 'or'
+    return char == 'or'
 
-def BoolEval(stack,op):
 
-        
-    g = Graph()
-    g.parse("../ontologias/engenhariaFlorestalRDF.owl")
+def BoolEval(stack, op):
 
     if(op == 'or'):
-        return queryTripleString(g, ontologyPrefix, stack.pop()) or queryTripleString(g, ontologyPrefix, stack.pop())
+        return queryTripleString(stack.pop()) or queryTripleString(stack.pop())
     elif(op == 'and'):
-        return queryTripleString(g, ontologyPrefix, stack.pop()) and queryTripleString(g, ontologyPrefix, stack.pop())
+        return queryTripleString(stack.pop()) and queryTripleString(stack.pop())
     elif(op == 'not'):
-        return not queryTripleString(g,ontologyPrefix,stack.pop())
+        return not queryTripleString(stack.pop())
     else:
-        return queryTripleString(g,ontologyPrefix,stack.pop())    
+        return queryTripleString(stack.pop())
+
 
 def Infix_Eval(expression):
 
     # Avalia a expressão infixa
-    # TODO: NAO PRECISA DE MODIFICACOES 
+    # TODO: NAO PRECISA DE MODIFICACOES
     stack = Stack()
 
     if(len(expression) == 1):
-        return BoolEval(expression,' ')
+        return BoolEval(expression, ' ')
 
     for exp in expression:
         if(isOperator(exp)):
-            value = BoolEval(stack,exp)
+            value = BoolEval(stack, exp)
             stack.push(value)
         else:
-            stack.push(exp) 
-    
+            stack.push(exp)
+
     return stack.pop()
+
 
 def isCloseBracket(char):
     return char == ']'
 
+
 def isOpenBracket(char):
     return char == '['
 
+
 def StringEval(entrada):
-    
-    # Transforma a expressão infixa fornecida em uma expressao pos-fixa
-    # TODO: NAO NECESSITA DE MODIFICAÇOES 
+    """
+    Transforma a expressão infixa fornecida em uma expressao pos-fixa
+    """
+
+    # TODO: NAO NECESSITA DE MODIFICAÇOES
     saida = []
     stack = Stack()
 
@@ -143,17 +160,17 @@ def StringEval(entrada):
                 aux = stack.pop()
 
         else:
-           saida.append(exp)    
+            saida.append(exp)
 
     while(not stack.isEmpty()):
-        aux = stack.pop() 
+        aux = stack.pop()
         if(not isOpenBracket(aux)):
             saida.append(aux)
 
-    return saida  
-        
+    return saida
 
-def validateTriple(g, ontologyPrefix, subject = None, predicate = None, object = None):
+
+def validateTriple(subject=None, predicate=None, object=None):
     """
     Verifica se a tripla é válida no grafo.
     Leva em conta a transitividade, reflexividade e simetria das relações.
@@ -165,7 +182,7 @@ def validateTriple(g, ontologyPrefix, subject = None, predicate = None, object =
 
     # Primeiro temos que conhecer a relação e suas propriedades
     # A relação existe?
-    queryResult = g.query(
+    queryResult = graph.query(
         """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -182,15 +199,15 @@ def validateTriple(g, ontologyPrefix, subject = None, predicate = None, object =
             # A relação existe
             print('Debug: A relação existe')
             existingRelation = True
-    
+
     if (existingRelation):
 
         # Temos que conhecer as suas propriedades
-        queryResult = g.query(
+        queryResult = graph.query(
             """
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             PREFIX owl: <http://www.w3.org/2002/07/owl#>
-            PREFIX ontology: <http://www.semanticweb.org/tulio/ontologies/2018/3/engenhariaFlorestal#>
+            PREFIX ontology: <""" + ontologyPrefix + """>
             SELECT DISTINCT ?property
                 WHERE {
                     ontology:""" + predicate + """ rdf:type ?property .
@@ -221,9 +238,9 @@ def validateTriple(g, ontologyPrefix, subject = None, predicate = None, object =
 
         # Construir a lista de objetos do sujeito especificado
         if (isTransitive):
-            objects = g.transitive_objects(subjectURI, predicateURI)
+            objects = graph.transitive_objects(subjectURI, predicateURI)
         else:
-            objects = g.objects(subjectURI, predicateURI)
+            objects = graph.objects(subjectURI, predicateURI)
 
         if objectURI in objects:
             return True
@@ -234,34 +251,33 @@ def validateTriple(g, ontologyPrefix, subject = None, predicate = None, object =
         # A relação não existe
         return False
 
-def newRelation(rel,exp):
-    exp = exp.split(" ")
-    Global_HashMap.put(rel,exp)
 
-    
-def evalRelation(triple):
+def newRelation(rel, exp):
+    exp = exp.split(" ")
+    Global_HashMap.put(rel, exp)
+
+
+def evalRelation(s, p, o):
 
     i = 0
-    
-    triple = triple[1:-1]
-    s, p, o = triple.split(',')
+
     relation = Global_HashMap.get(p)
 
     if(relation == None):
-        return 
-   
+        return
+
     for exp in relation:
         if(not isOperator(exp) and not isCloseBracket(exp) and not isOpenBracket(exp)):
             relation[i] = "(" + s + "," + exp + "," + o + ")"
-        i += 1
+        i += 1 
 
     relation = StringEval(relation)
     print(relation)
     return Infix_Eval(relation)
-    
 
-def queryTripleString(graph, ontologyPrefix, triple):
-    """o
+
+def queryTripleString(triple):
+    """
     Recebe uma string no formato (sujeito, predicado, objeto).
 
     Retorna um booleano indicando se a tripla existe ou não.
@@ -277,13 +293,11 @@ def queryTripleString(graph, ontologyPrefix, triple):
     # print(s, p, o)
 
     if(Global_HashMap.get(p) != None):
-        return evalRelation("("+s+","+p+","+o+")")
-    return validateTriple(graph, ontologyPrefix, s, p, o)
+        return evalRelation(s, p ,o)
+    return validateTriple(s, p, o)
 
-def search(exp):      
-    g = Graph()
-    g.parse("../ontologias/engenhariaFlorestalRDF.owl")
 
+def search(exp):
 
     exp = exp.split(" ")
     print(exp)

@@ -1,13 +1,15 @@
 import os
 from search import *
-from consistencia import consistencyEval
+from consistencia import *
 from utils import *
 from rdflib import Graph
+
 
 def quit():
     os.system("clear")
     print("Goodbye!")
     input()
+
 
 def user_consistency():
     os.system("clear")
@@ -26,7 +28,7 @@ def user_search():
         print("- QUIT")
         print("\n")
 
-        option = input("option: ")
+        option = input("option: ").upper()
 
         if(option == 'QUERY'):
             exp = input("Insira expressão bool utilizando 'and', 'or' e 'not': ")
@@ -34,9 +36,9 @@ def user_search():
         elif(option == 'NEW RELATION'):
             rel = input("Insira o nome da nova relação: ")
             exp = input("Insira a expressão utilizando 'and', 'or', e 'not': ")
-            
-            newRelation(rel,exp)
-    
+
+            newRelation(rel, exp)
+
 
 def user_utils(g):
     os.system("clear")
@@ -48,9 +50,9 @@ def user_utils(g):
         print("- CLASSES")
         print("- PROPERTIES")
         print("- QUIT")
-        print("\n") 
+        print("\n")
 
-        option = input("option: ")
+        option = input("option: ").upper()
 
         if(option == 'INDIVIDUALS'):
             printIndividuals(g)
@@ -62,10 +64,22 @@ def user_utils(g):
             printProperties(g)
             input()
 
+
 if __name__ == "__main__":
 
+    # TODO Receber o nome da Ontologia e o path como input
     g = Graph()
     g.parse("../ontologias/engenhariaFlorestalRDF.owl")
+    ontologyName = 'engenhariaFlorestal'
+    ontologyPrefix = ''
+
+    namespaces = g.namespaces()
+    for (name, prefix) in namespaces:
+        if name == ontologyName:
+            ontologyPrefix = str(prefix)
+
+    configConsistencia(g, ontologyPrefix)
+    configSearch(g, ontologyPrefix)
 
     option = 'DO'
     while(option != 'QUIT'):
@@ -75,8 +89,8 @@ if __name__ == "__main__":
         print("- CONSISTENCY")
         print("- QUIT")
         print("\n")
-        
-        option = input("option: ")
+
+        option = input("option: ").upper()
 
         if(option == 'SEARCH'):
             os.system("clear")
@@ -86,6 +100,6 @@ if __name__ == "__main__":
             user_utils(g)
         elif(option == 'CONSISTENCY'):
             os.system("clear")
-            user_consistency()        
+            user_consistency()
 
-    quit()    
+    quit()
