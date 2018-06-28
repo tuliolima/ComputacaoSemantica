@@ -205,7 +205,7 @@ def validateTriple(subject=None, predicate=None, object=None):
         result = row[0]
         if (result == predicateURI):
             # A relação existe
-            print('Debug: A relação existe')
+            #print('Debug: A relação existe')
             existingRelation = True
 
     if (existingRelation):
@@ -229,15 +229,15 @@ def validateTriple(subject=None, predicate=None, object=None):
             result = row[0]
             if (result == transitiveProperty):
                 # A propriedade é transitiva, devemos resolver a transitividade
-                print("Debug: A relação é transitiva")
+                #print("Debug: A relação é transitiva")
                 isTransitive = True
             if (result == asymmetricProperty):
                 # A propriedade é assimétrica
-                print("Debug: A relação é assimétrica")
+                #print("Debug: A relação é assimétrica")
                 isAsymmetric = True
             if (result == irreflexiveProperty):
                 # A propriedade é irreflexiva
-                print("Debug: A relação é irreflexiva")
+                #print("Debug: A relação é irreflexiva")
                 isIrreflexive = True
 
         # Verificar irreflexividade
@@ -264,24 +264,50 @@ def newRelation(rel, exp):
     exp = exp.split(" ")
     Global_HashMap.put(rel, exp)
 
+def isTriple(exp):
+    tam = len(exp)
+    return exp[0] == '(' and exp[tam - 1] == ')'
+
+def clean_relation(relation):
+    i = 0
+    
+    for a in relation:
+
+        if(isTriple(a)):
+            a = a[1:-1]
+            s, p, o = a.split(',')  
+            relation[i] = p
+        i += 1   
 
 def evalRelation(s, p, o):
 
     i = 0
 
+    posfix_relation = ""
     relation = Global_HashMap.get(p)
+    
+    print("------------------------------")
+    print("Lista encontrada no Hashmap: ")
+    print(relation)
+    print("------------------------------")
+
 
     if(relation == None):
         return
 
     for exp in relation:
-        if(not isOperator(exp) and not isCloseBracket(exp) and not isOpenBracket(exp)):
+        if(not isOperator(exp) and not isCloseBracket(exp) and not isOpenBracket(exp) and not isTriple(exp)):
             relation[i] = "(" + s + "," + exp + "," + o + ")"
         i += 1 
 
-    relation = StringEval(relation)
-    print(relation)
-    return Infix_Eval(relation)
+    posfix_relation = StringEval(relation)
+    print("------------------------------")
+    print("Avaliação de nova relação:")
+    print(posfix_relation)
+    print("------------------------------")
+    result = Infix_Eval(posfix_relation)
+    clean_relation(relation)
+    return result
 
 
 def queryTripleString(triple):
@@ -310,7 +336,10 @@ def search(exp):
     exp = exp.split(" ")
     print(exp)
     exp = StringEval(exp)
-
+    print("------------------------------")
+    print("Avaliação de relação pré-definida:")
     print(exp)
-
+    print("------------------------------")
+    print("Resultado:")
     print(Infix_Eval(exp))
+    print("------------------------------")
