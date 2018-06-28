@@ -150,9 +150,6 @@ def StringEval(entrada):
     for exp in entrada:
 
         if(isOperator(exp)):
-            print("Hey")
-            if(stack.isEmpty()):
-                print("vazia")
             while((not stack.isEmpty()) and not isOpenBracket(stack.peek()) and hasPriority(exp,stack.peek())):
                 op = stack.pop()
                 saida.append(op)
@@ -286,8 +283,9 @@ def evalRelation(s, p, o):
     posfix_relation = ""
     relation = Global_HashMap.get(p)
     
+    print("\n")
     print("------------------------------")
-    print("Lista encontrada no Hashmap: ")
+    print("Relação encontrada no Hashmap: ")
     print(relation)
     print("------------------------------")
 
@@ -301,12 +299,17 @@ def evalRelation(s, p, o):
         i += 1 
 
     posfix_relation = StringEval(relation)
-    print("------------------------------")
-    print("Avaliação de nova relação:")
+
+    print("\n")
+    print("-------------------------------")
+    print("Como ela é avaliada:")
     print(posfix_relation)
-    print("------------------------------")
+    print("-------------------------------")
+    print("\n")
+
     result = Infix_Eval(posfix_relation)
     clean_relation(relation)
+    
     return result
 
 
@@ -334,12 +337,14 @@ def queryTripleString(triple):
 def search(exp):
 
     exp = exp.split(" ")
-    print(exp)
     exp = StringEval(exp)
-    print("------------------------------")
-    print("Avaliação de relação pré-definida:")
+
+    print("\n")
+    print("------------------------------------")
+    print("Expressão Pós-fixa a ser avaliada: ")
     print(exp)
-    print("------------------------------")
-    print("Resultado:")
-    print(Infix_Eval(exp))
-    print("------------------------------")
+    print("------------------------------------")
+
+    resultado = Infix_Eval(exp)
+
+    return resultado
