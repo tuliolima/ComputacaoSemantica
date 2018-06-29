@@ -14,6 +14,9 @@ graph = None
 
 
 def configSearch(g, ontoPrefix):
+    """
+    Seta as variáveis globais utilizadas no módulo
+    """
     global ontologyPrefix, graph
     ontologyPrefix = ontoPrefix
     graph = g

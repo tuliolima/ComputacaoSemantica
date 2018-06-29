@@ -1,37 +1,48 @@
 import os
-from search import *
-from consistencia import *
-from utils import *
+import sys
+from search import search
+from search import newRelation
+from search import configSearch
+from consistencia import consistencyEval
+from consistencia import configConsistencia
+from utils import printClasses
+from utils import printIndividuals
+from utils import printClasses
+from utils import printProperties
 from rdflib import Graph
 
 
+def cls():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def quit():
-    os.system("clear")
     print("Goodbye!")
     input()
+    cls()
 
 
 def user_consistency():
-    os.system("clear")
     consistencyEval()
     input()
 
 
 def user_search():
-    os.system("clear")
 
     option = 'DO'
-    while(option != 'QUIT'):
+    while(option != 'BACK'):
+        cls()
         print("\n")
         print("- QUERY")
         print("- NEW RELATION")
-        print("- QUIT")
+        print("- BACK")
         print("\n")
 
         option = input("option: ").upper()
 
         if(option == 'QUERY'):
-            exp = input("Insira expressão bool utilizando 'and', 'or' e 'not': ")
+            exp = input(
+                "Insira expressão bool utilizando 'and', 'or' e 'not': ")
             resultado = search(exp)
 
             print("------------------------------------")
@@ -39,7 +50,8 @@ def user_search():
             print(resultado)
             print("------------------------------------")
             print("\n")
-            
+            input()
+
         elif(option == 'NEW RELATION'):
             rel = input("Insira o nome da nova relação: ")
             exp = input("Insira a expressão utilizando 'and', 'or', e 'not': ")
@@ -48,15 +60,15 @@ def user_search():
 
 
 def user_utils(g):
-    os.system("clear")
 
     option = 'DO'
-    while(option != 'QUIT'):
+    while(option != 'BACK'):
+        cls()
         print("\n")
         print("- INDIVIDUALS")
         print("- CLASSES")
         print("- PROPERTIES")
-        print("- QUIT")
+        print("- BACK")
         print("\n")
 
         option = input("option: ").upper()
@@ -74,12 +86,18 @@ def user_utils(g):
 
 if __name__ == "__main__":
 
-    # TODO Receber o nome da Ontologia e o path como input
-    g = Graph()
-    g.parse("../ontologias/engenhariaFlorestalRDF.owl")
-    ontologyName = 'engenhariaFlorestal'
-    ontologyPrefix = ''
+    cls()
 
+    if len(sys.argv) < 3:
+        ontologyName = input("Ontology name: ")
+        ontologyPath = input("Ontology path: ")
+    else:
+        ontologyName = sys.argv[1]
+        ontologyPath = sys.argv[2]
+
+    g = Graph()
+    g.parse(ontologyPath)
+    ontologyPrefix = ''
     namespaces = g.namespaces()
     for (name, prefix) in namespaces:
         if name == ontologyName:
@@ -90,6 +108,7 @@ if __name__ == "__main__":
 
     option = 'DO'
     while(option != 'QUIT'):
+        cls()
         print("\n")
         print("- SEARCH")
         print("- UTILS")
@@ -100,13 +119,14 @@ if __name__ == "__main__":
         option = input("option: ").upper()
 
         if(option == 'SEARCH'):
-            os.system("clear")
+            cls()
             user_search()
         elif(option == 'UTILS'):
-            os.system("clear")
+            cls()
             user_utils(g)
         elif(option == 'CONSISTENCY'):
-            os.system("clear")
+            cls()
             user_consistency()
 
+    cls()
     quit()
