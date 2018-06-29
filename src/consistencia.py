@@ -51,10 +51,10 @@ def consistencyEval():
             }
         """)
 
-    print("\nClasses:\n")
-    for row in qres:
-        result_1 = row[0]
-        print(result_1.split('#')[-1])
+    #print("\nClasses:\n")
+    #for row in qres:
+    #    result_1 = row[0]
+    #    print(result_1.split('#')[-1])
 
     # Buscando Relações
     properties = graph.query(
@@ -71,12 +71,12 @@ def consistencyEval():
             }
         """)
 
-    print("\nRelações:\n")
-    for row in properties:
-        result_1 = row[0]
-        result_2 = row[1]
-        result_3 = row[2]
-        print(result_1.split('#')[-1] + " (" + result_2.split('#')[-1] + " ," + result_3.split('#')[-1] + ")")
+    #print("\nRelações:\n")
+    #for row in properties:
+    #    result_1 = row[0]
+    #    result_2 = row[1]
+    #    result_3 = row[2]
+    #    print(result_1.split('#')[-1] + " (" + result_2.split('#')[-1] + " ," + result_3.split('#')[-1] + ")")
 
     # Buscando Instâncias
     qres = graph.query(
@@ -90,10 +90,10 @@ def consistencyEval():
             }
         """)
 
-    print("\nInstâncias:\n")
-    for row in qres:
-        result_1 = row[0]
-        print(result_1.split('#')[-1])
+    #print("\nInstâncias:\n")
+    #for row in qres:
+    #    result_1 = row[0]
+    #    print(result_1.split('#')[-1])
 
     # Investigando as Relações
     for row in properties:
