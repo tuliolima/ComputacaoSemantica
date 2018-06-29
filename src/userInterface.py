@@ -32,7 +32,14 @@ def user_search():
 
         if(option == 'QUERY'):
             exp = input("Insira expressão bool utilizando 'and', 'or' e 'not': ")
-            search(exp)
+            resultado = search(exp)
+
+            print("------------------------------------")
+            print("Resultado da Query: ")
+            print(resultado)
+            print("------------------------------------")
+            print("\n")
+            
         elif(option == 'NEW RELATION'):
             rel = input("Insira o nome da nova relação: ")
             exp = input("Insira a expressão utilizando 'and', 'or', e 'not': ")
