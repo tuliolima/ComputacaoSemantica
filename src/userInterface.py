@@ -1,4 +1,5 @@
 import os
+import sys
 from search import *
 from consistencia import *
 from utils import *
@@ -74,12 +75,16 @@ def user_utils(g):
 
 if __name__ == "__main__":
 
-    # TODO Receber o nome da Ontologia e o path como input
-    g = Graph()
-    g.parse("../ontologias/engenhariaFlorestalInconsistente.owl")
-    ontologyName = 'engenhariaFlorestal'
-    ontologyPrefix = ''
+    if len(sys.argv) < 3:
+        ontologyName = input("Ontology name: ")
+        ontologyPath = input("Ontology path: ")
+    else:
+        ontologyName = sys.argv[1]
+        ontologyPath = sys.argv[2]
 
+    g = Graph()
+    g.parse(ontologyPath)
+    ontologyPrefix = ''
     namespaces = g.namespaces()
     for (name, prefix) in namespaces:
         if name == ontologyName:

@@ -1,45 +1,42 @@
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
+# OntoFlora 1.0
+# consistencia.py
+# 
+# Módulo para realizar a análise de consistência de uma ontologia.
+# Antes de tudo deve ser chamado o método configConsistencia para
+# indicar qual a ontologia que será usada.
 
 import rdflib
 from rdflib import URIRef
+from rdflib import Graph
 
+# Propriedades das relações
+functionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
+inverseFunctionalProperty = URIRef(
+    'http://www.w3.org/2002/07/owl#InverseFunctionalProperty')
 transitiveProperty = URIRef('http://www.w3.org/2002/07/owl#TransitiveProperty')
-funtionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
+symmetricProperty = URIRef('http://www.w3.org/2002/07/owl#SymmetricProperty')
 asymmetricProperty = URIRef('http://www.w3.org/2002/07/owl#AsymmetricProperty')
+reflexiveProperty = URIRef(
+    'http://www.w3.org/2002/07/owl#ReflexiveProperty')
 irreflexiveProperty = URIRef(
     'http://www.w3.org/2002/07/owl#IrreflexiveProperty')
+
+
 ontologyPrefix = ''
 graph = None
 
 
 def configConsistencia(g, ontoPrefix):
-    """
-    Seta as variáveis globais utilizadas no módulo
-    """
+    """Seta as variáveis globais utilizadas no módulo"""
+
     global ontologyPrefix, graph
     graph = g
     ontologyPrefix = ontoPrefix
 
 
-def transitive_closure(y, z):
-    return graph.transitive_objects(y, z)
-
-
-def detect_cycle():
-    for x, y, z in graph:
-        teste = transitive_closure(y, z)
-        teste = [a for a in teste]
-        teste = teste[1:]
-        if x in teste:
-            return True
-    return False
-
-
 def detectCycle(subject, property, remember=None):
-    """
-    Detecta Ciclo em uma relação transitiva.
-    """
+    """Detecta Ciclo em uma relação transitiva."""
+
     if remember is None:
         remember = {}
     if subject in remember:
@@ -53,16 +50,11 @@ def detectCycle(subject, property, remember=None):
 
 
 def consistencyEval():
+    """Avalia a consistência da ontologia"""
 
     if graph == None:
         print('Módulo consistência: O grafo não foi definido.')
         return
-
-    ciclo = detect_cycle()
-    if ciclo:
-        print("Grafo tem ciclos")
-    else:
-        print("Grafo não tem ciclos")
 
     # Buscando Classes
     qres = graph.query(
@@ -124,6 +116,14 @@ def consistencyEval():
     # Investigando as Relações
     for row in properties:
         property = row[0].split('#')[-1]
+        propertyURI = URIRef(ontologyPrefix + property)
+
+        # Utilize um grafo auxiliar com as triplas específicas
+        # dessa relação para melhorar a performance.
+        propertyGraph = Graph()
+        triples = graph.triples((None, propertyURI, None))
+        for (s, p, o) in triples:
+            propertyGraph.add((s, p, o))
 
         # Temos que conhecer as suas características
         queryResult = graph.query(
@@ -138,50 +138,102 @@ def consistencyEval():
                 }
             """)
 
+        # Se a relação não tem nunhuma propriedade então não há nada
+        # para analizar.
         if not queryResult:
             continue
 
         isFunctional = False
+        isInverseFunctional = False
         isTransitive = False
+        isSymmetric = False
         isAsymmetric = False
+        isReflexive = False
         isIrreflexive = False
         for row in queryResult:
             result = row[0]
-            if (result == funtionalProperty):
+            if (result == inverseFunctionalProperty):
+                isInverseFunctionalFunctional = True
+            if (result == functionalProperty):
                 isFunctional = True
             if (result == transitiveProperty):
                 isTransitive = True
+            if (result == symmetricProperty):
+                isSymmetricsymmetric = True
             if (result == asymmetricProperty):
                 isAsymmetric = True
+            if (result == reflexiveProperty):
+                isReflexive = True
             if (result == irreflexiveProperty):
                 isIrreflexive = True
 
-        print("\nAnalizando a relação " + property + ":")
+        print("\nAnalizando a relação %s:", property)
 
         if isFunctional:
+            # Cada sujeito só pode se reacionar a um objeto.
             print("É funcional.")
-            # TODO Fazer a verificação
+
+            inconsistent = False
+            errors = ''
+            for sub in propertyGraph.subjects(predicate=propertyURI):
+                i = 0
+                for a in propertyGraph.objects(subject=sub, predicate=propertyURI):
+                    i += 1
+                    if i > 1:
+                        inconsistent = True
+                        errors = sub.split('#')[-1] + ', '
+                        break
+            if inconsistent:
+                print("\tEstá inconsistente.")
+                print("\tA inconsistência está em: " + errors)
+            else:
+                print("\tEstá consistente.")
+
+        if isInverseFunctional:
+            # Cada objeto só pode ter um sujeito relacionado a ele.
+            print("É inversamente funcional.")
+
+            inconsistent = False
+            errors = ''
+            for obj in propertyGraph.objects(predicate=propertyURI):
+                i = 0
+                for a in propertyGraph.subjects(predicate=propertyURI, object=obj):
+                    i += 1
+                    if i > 1:
+                        inconsistent = True
+                        errors = sub.split('#')[-1] + ', '
+                        break
+            if inconsistent:
+                print("\tEstá inconsistente.")
+                print("\tA inconsistência está em: " + errors)
+            else:
+                print("\tEstá consistente.")
 
         if isTransitive:
-            print("É transitiva. Analizando:")
+            # Não pode haver ciclos na transitividade
+            print("É transitiva.")
 
-            predicateURI = URIRef(ontologyPrefix + property)
             inconsistent = False
-            for sub in graph.subjects(predicate=predicateURI):
-                cycleObj = detectCycle(sub, predicateURI)
+            for sub in propertyGraph.subjects(predicate=propertyURI):
+                cycleObj = detectCycle(sub, propertyURI)
                 if cycleObj != None:
                     inconsistent = True
                     break
             if inconsistent:
-                print("Inconsistente!")
-                print("Ponto de ciclo: " + cycleObj.toPython())
+                print("\tEstá inconsistente.")
+                print("\tA inconsistência está em: " + cycleObj.split('#')[-1])
             else:
-                print("Consistente.")
+                print("\tEstá consistente.")
+
+        if isSymmetric:
+            # A relação (x, y) pode ser interpretada como (y, x).
+            print("É simétrica.")
 
         if isAsymmetric:
+            # A relação (x, y) não pode ser interpretada como (y, x).
             print("É assimétrica.")
 
-            queryResult = graph.query(
+            queryResult = propertyGraph.query(
                 """
                 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -194,15 +246,23 @@ def consistencyEval():
                 """)
 
             if not queryResult:
-                print("Está consistente.")
+                print("\tEstá consistente.")
             else:
-                print("Está inconsistente.")
-                # TODO Imprimir casos inconsistentes.
+                print("\tEstá inconsistente.")
+                errors = ''
+                for row in qres:
+                    errors += row[0].split('#')[-1] + ', '
+                print("\tA inconsistência está em: " + errors)
+
+        if isReflexive:
+            # Um elemento pode se relacionar com ele mesmo.
+            print("É reflexiva.")
 
         if isIrreflexive:
+            # Um elemento não pode se relacionar com ele mesmo.
             print("É irreflexiva.")
 
-            queryResult = graph.query(
+            queryResult = propertyGraph.query(
                 """
                 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -214,7 +274,10 @@ def consistencyEval():
                 """)
 
             if not queryResult:
-                print("Está consistente.")
+                print("\tEstá consistente.")
             else:
-                print("Está inconsistente.")
-                # TODO Imprimir casos inconsistentes.
+                print("\tEstá inconsistente.")
+                errors = ''
+                for row in qres:
+                    errors += row[0].split('#')[-1] + ', '
+                print("\tA inconsistência está em: " + errors)
