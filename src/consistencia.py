@@ -1,15 +1,17 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import rdflib 
+import rdflib
 from rdflib import URIRef
 
 transitiveProperty = URIRef('http://www.w3.org/2002/07/owl#TransitiveProperty')
 funtionalProperty = URIRef('http://www.w3.org/2002/07/owl#FunctionalProperty')
 asymmetricProperty = URIRef('http://www.w3.org/2002/07/owl#AsymmetricProperty')
-irreflexiveProperty = URIRef('http://www.w3.org/2002/07/owl#IrreflexiveProperty')
+irreflexiveProperty = URIRef(
+    'http://www.w3.org/2002/07/owl#IrreflexiveProperty')
 ontologyPrefix = ''
 graph = None
+
 
 def configConsistencia(g, ontoPrefix):
     """
@@ -19,11 +21,13 @@ def configConsistencia(g, ontoPrefix):
     graph = g
     ontologyPrefix = ontoPrefix
 
+
 def transitive_closure(y, z):
-    return graph.transitive_objects(y,z)
+    return graph.transitive_objects(y, z)
+
 
 def detect_cycle():
-    for x,y,z in graph:
+    for x, y, z in graph:
         teste = transitive_closure(y, z)
         teste = [a for a in teste]
         teste = teste[1:]
@@ -31,7 +35,28 @@ def detect_cycle():
             return True
     return False
 
+
+def detectCycle(subject, property, remember=None):
+    """
+    Detecta Ciclo em uma relação transitiva.
+    """
+    if remember is None:
+        remember = {}
+    if subject in remember:
+        return subject
+    remember[subject] = 1
+    for object in graph.objects(subject, property):
+        cicle = detectCycle(object, property, remember)
+        if cicle != None:
+            return cicle
+    return None
+
+
 def consistencyEval():
+
+    if graph == None:
+        print('Módulo consistência: O grafo não foi definido.')
+        return
 
     ciclo = detect_cycle()
     if ciclo:
@@ -76,7 +101,8 @@ def consistencyEval():
         result_1 = row[0]
         result_2 = row[1]
         result_3 = row[2]
-        print(result_1.split('#')[-1] + " (" + result_2.split('#')[-1] + " ," + result_3.split('#')[-1] + ")")
+        print(result_1.split(
+            '#')[-1] + " (" + result_2.split('#')[-1] + " ," + result_3.split('#')[-1] + ")")
 
     # Buscando Instâncias
     qres = graph.query(
@@ -84,7 +110,7 @@ def consistencyEval():
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX owl: <http://www.w3.org/2002/07/owl#>
-        SELECT DISTINCT ?individual 
+        SELECT DISTINCT ?individual
             WHERE {
                 ?individual rdf:type owl:NamedIndividual
             }
@@ -114,7 +140,7 @@ def consistencyEval():
 
         if not queryResult:
             continue
-            
+
         isFunctional = False
         isTransitive = False
         isAsymmetric = False
@@ -134,9 +160,23 @@ def consistencyEval():
 
         if isFunctional:
             print("É funcional.")
+            # TODO Fazer a verificação
 
         if isTransitive:
-            print("É transitiva.")
+            print("É transitiva. Analizando:")
+
+            predicateURI = URIRef(ontologyPrefix + property)
+            inconsistent = False
+            for sub in graph.subjects(predicate=predicateURI):
+                cycleObj = detectCycle(sub, predicateURI)
+                if cycleObj != None:
+                    inconsistent = True
+                    break
+            if inconsistent:
+                print("Inconsistente!")
+                print("Ponto de ciclo: " + cycleObj.toPython())
+            else:
+                print("Consistente.")
 
         if isAsymmetric:
             print("É assimétrica.")
@@ -178,4 +218,3 @@ def consistencyEval():
             else:
                 print("Está inconsistente.")
                 # TODO Imprimir casos inconsistentes.
-                

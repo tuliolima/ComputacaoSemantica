@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     # TODO Receber o nome da Ontologia e o path como input
     g = Graph()
-    g.parse("../ontologias/engenhariaFlorestalRDF.owl")
+    g.parse("../ontologias/engenhariaFlorestalInconsistente.owl")
     ontologyName = 'engenhariaFlorestal'
     ontologyPrefix = ''
 
