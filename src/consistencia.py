@@ -56,6 +56,8 @@ def consistencyEval():
         print('Módulo consistência: O grafo não foi definido.')
         return
 
+    print("Análise de consistência da ontologia:\n")
+
     # Buscando Classes
     qres = graph.query(
         """
@@ -72,6 +74,8 @@ def consistencyEval():
     for row in qres:
         result_1 = row[0]
         print(result_1.split('#')[-1])
+
+    input()
 
     # Buscando Relações
     properties = graph.query(
@@ -96,6 +100,8 @@ def consistencyEval():
         print(result_1.split(
             '#')[-1] + " (" + result_2.split('#')[-1] + " ," + result_3.split('#')[-1] + ")")
 
+    input()
+
     # Buscando Instâncias
     qres = graph.query(
         """
@@ -112,6 +118,8 @@ def consistencyEval():
     for row in qres:
         result_1 = row[0]
         print(result_1.split('#')[-1])
+
+    input()
 
     # Investigando as Relações
     for row in properties:
@@ -167,7 +175,7 @@ def consistencyEval():
             if (result == irreflexiveProperty):
                 isIrreflexive = True
 
-        print("\nAnalizando a relação %s:", property)
+        print("\nAnalizando a relação " + property + ":")
 
         if isFunctional:
             # Cada sujeito só pode se reacionar a um objeto.

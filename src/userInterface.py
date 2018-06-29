@@ -6,33 +6,37 @@ from utils import *
 from rdflib import Graph
 
 
+def cls():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def quit():
-    os.system("clear")
     print("Goodbye!")
     input()
+    cls()
 
 
 def user_consistency():
-    os.system("clear")
     consistencyEval()
     input()
 
 
 def user_search():
-    os.system("clear")
 
     option = 'DO'
-    while(option != 'QUIT'):
+    while(option != 'BACK'):
+        cls()
         print("\n")
         print("- QUERY")
         print("- NEW RELATION")
-        print("- QUIT")
+        print("- BACK")
         print("\n")
 
         option = input("option: ").upper()
 
         if(option == 'QUERY'):
-            exp = input("Insira expressão bool utilizando 'and', 'or' e 'not': ")
+            exp = input(
+                "Insira expressão bool utilizando 'and', 'or' e 'not': ")
             resultado = search(exp)
 
             print("------------------------------------")
@@ -40,7 +44,7 @@ def user_search():
             print(resultado)
             print("------------------------------------")
             print("\n")
-            
+
         elif(option == 'NEW RELATION'):
             rel = input("Insira o nome da nova relação: ")
             exp = input("Insira a expressão utilizando 'and', 'or', e 'not': ")
@@ -49,15 +53,15 @@ def user_search():
 
 
 def user_utils(g):
-    os.system("clear")
 
     option = 'DO'
-    while(option != 'QUIT'):
+    while(option != 'BACK'):
+        cls()
         print("\n")
         print("- INDIVIDUALS")
         print("- CLASSES")
         print("- PROPERTIES")
-        print("- QUIT")
+        print("- BACK")
         print("\n")
 
         option = input("option: ").upper()
@@ -74,6 +78,8 @@ def user_utils(g):
 
 
 if __name__ == "__main__":
+
+    cls()
 
     if len(sys.argv) < 3:
         ontologyName = input("Ontology name: ")
@@ -95,6 +101,7 @@ if __name__ == "__main__":
 
     option = 'DO'
     while(option != 'QUIT'):
+        cls()
         print("\n")
         print("- SEARCH")
         print("- UTILS")
@@ -105,13 +112,14 @@ if __name__ == "__main__":
         option = input("option: ").upper()
 
         if(option == 'SEARCH'):
-            os.system("clear")
+            cls()
             user_search()
         elif(option == 'UTILS'):
-            os.system("clear")
+            cls()
             user_utils(g)
         elif(option == 'CONSISTENCY'):
-            os.system("clear")
+            cls()
             user_consistency()
 
+    cls()
     quit()
