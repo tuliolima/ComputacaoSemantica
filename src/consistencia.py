@@ -70,10 +70,10 @@ def consistencyEval():
             }
         """)
 
-    print("\nClasses:\n")
-    for row in qres:
-        result_1 = row[0]
-        print(result_1.split('#')[-1])
+    #print("\nClasses:\n")
+    #for row in qres:
+    #    result_1 = row[0]
+    #    print(result_1.split('#')[-1])
 
     input()
 
@@ -114,10 +114,10 @@ def consistencyEval():
             }
         """)
 
-    print("\nInstâncias:\n")
-    for row in qres:
-        result_1 = row[0]
-        print(result_1.split('#')[-1])
+    #print("\nInstâncias:\n")
+    #for row in qres:
+    #    result_1 = row[0]
+    #    print(result_1.split('#')[-1])
 
     input()
 

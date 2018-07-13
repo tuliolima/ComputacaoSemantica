@@ -5,9 +5,15 @@
 
 import os
 import sys
-from search import *
-from consistencia import *
-from utils import *
+from search import search
+from search import newRelation
+from search import configSearch
+from consistencia import consistencyEval
+from consistencia import configConsistencia
+from utils import printClasses
+from utils import printIndividuals
+from utils import printClasses
+from utils import printProperties
 from rdflib import Graph
 
 
