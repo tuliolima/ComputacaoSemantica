@@ -1,3 +1,10 @@
+# OntoFlora 1.0
+# search.py
+# 
+# Módulo para realizar pesquisas em uma ontologia.
+# Antes de tudo deve ser chamado o método configSearch para
+# indicar qual a ontologia que será usada.
+
 from rdflib import Graph
 from rdflib import URIRef
 from rdflib.namespace import RDF

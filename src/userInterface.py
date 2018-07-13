@@ -1,3 +1,8 @@
+# OntoFlora 1.0
+# userInterface.py
+# 
+# Módulo de interface com usuário do motor OntoFlora.
+
 import os
 import sys
 from search import *
@@ -44,6 +49,7 @@ def user_search():
             print(resultado)
             print("------------------------------------")
             print("\n")
+            input()
 
         elif(option == 'NEW RELATION'):
             rel = input("Insira o nome da nova relação: ")
